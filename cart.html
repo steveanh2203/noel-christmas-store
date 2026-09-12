@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Holiday Shopping Bag | NOËL & CO.</title>
+  <meta name="description" content="Review your holiday bag, customize luxury gift wrapping, apply coupon codes, and proceed to secure checkout.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎁 <strong>Free Holiday Express Shipping</strong> on orders over $75 / €70</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="action-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="cart.html" class="active">View Full Cart <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="checkout.html">Direct Checkout <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner" style="padding: 36px 0;">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Your Shopping Bag</span>
+      </div>
+      <h1 class="page-title">Your Holiday Bag</h1>
+    </div>
+  </div>
+
+  <main class="cart-page-section">
+    <div class="container">
+      <div class="cart-page-grid">
+        <!-- Cart Items Table Card -->
+        <div class="cart-table-card">
+          <div id="cart-page-empty" style="display:none; text-align:center; padding:50px 20px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--color-text-light); margin-bottom:16px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <h2 style="font-family:var(--font-heading); color:var(--color-primary-forest); margin-bottom:10px;">Your Holiday Bag is Empty</h2>
+            <p style="color:var(--color-text-muted); margin-bottom:24px;">Discover our heirloom baubles, fragrant candles, and cozy knit throws.</p>
+            <a href="collections.html" class="btn btn-primary">Explore Holiday Catalog</a>
+          </div>
+
+          <div id="cart-page-items">
+            <!-- Rendered by theme.js -->
+          </div>
+
+          <!-- Handwritten Holiday Card Note -->
+          <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border);">
+            <label for="gift-note-text" style="display:block; font-size:0.9rem; font-weight:700; color:var(--color-primary-forest); margin-bottom:8px;">
+              ✍️ Complimentary Handwritten Gift Card Note:
+            </label>
+            <textarea id="gift-note-text" rows="3" class="checkout-input" placeholder="Type your heartfelt holiday message here. We will handwrite it on our gold-embossed Christmas stationery..."></textarea>
+          </div>
+        </div>
+
+        <!-- Cart Summary Card -->
+        <div class="cart-summary-card" id="cart-page-summary-box">
+          <h3 style="font-family:var(--font-heading); font-size:1.35rem; color:var(--color-primary-forest); margin-bottom:18px;">
+            Order Summary
+          </h3>
+
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:0.92rem;">
+            <span style="color:var(--color-text-muted);">Bag Subtotal</span>
+            <span id="cart-page-subtotal" style="font-weight:700;">$0.00</span>
+          </div>
+
+          <div id="cart-page-discount-row" style="display:none; justify-content:space-between; margin-bottom:10px; font-size:0.92rem; color:#27ae60;">
+            <span>Holiday Promo</span>
+            <span id="cart-page-discount-val">-$0.00</span>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; margin-bottom:14px; font-size:0.92rem;">
+            <span style="color:var(--color-text-muted);">Estimated Shipping</span>
+            <span style="color:#27ae60; font-weight:700;">Pre-Christmas Delivery</span>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; padding-top:14px; border-top:1px solid var(--color-border); font-size:1.25rem; font-weight:800; color:var(--color-primary-forest); margin-bottom:20px;">
+            <span>Total</span>
+            <span id="cart-page-final-total">$0.00</span>
+          </div>
+
+          <!-- Coupon Code Input -->
+          <div style="margin-bottom:24px;">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--color-text-muted); text-transform:uppercase;">Holiday Promo Code:</span>
+            <div class="coupon-box">
+              <input type="text" id="coupon-code-input" class="coupon-input" placeholder="Enter XMAS15">
+              <button class="coupon-btn" id="apply-coupon-btn">Apply</button>
+            </div>
+            <span style="font-size:0.75rem; color:#888; display:block; margin-top:4px;">Tip: Use code <strong>XMAS15</strong> for 15% OFF!</span>
+          </div>
+
+          <a href="checkout.html" class="btn btn-primary" style="width:100%; padding:14px; font-size:1rem;">
+            Proceed to Secure Checkout →
+          </a>
+
+          <div class="cart-payment-icons" style="margin-top:18px;">
+            <span class="payment-badge">Shop Pay</span>
+            <span class="payment-badge">Apple Pay</span>
+            <span class="payment-badge">PayPal</span>
+            <span class="payment-badge">Klarna</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="gift-guide.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+      <span>Gift Guide</span>
+    </a>
+    <a href="cart.html" class="bottom-nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved.</div>
+        <div><a href="checkout.html">Checkout Directly</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

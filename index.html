@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOËL & CO. | Luxury Christmas Holiday Emporium (USA & Europe)</title>
+  <meta name="description" content="Discover curated heirloom holiday ornaments, luxury scented candles, cozy wool blankets, and gourmet festive hampers. Guaranteed pre-Christmas delivery across USA & EU.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+
+  <!-- Falling Snow Canvas Background -->
+  <canvas id="snow-canvas"></canvas>
+
+  <!-- ==========================================================================
+       1. ANNOUNCEMENT BAR
+       ========================================================================== -->
+  <div class="announcement-bar" role="region" aria-label="Announcement">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎄 <strong>Holiday Delivery Guarantee</strong> — Order by Dec 18 for guaranteed Christmas arrival</span>
+      </div>
+
+      <div class="announcement-controls">
+        <div class="currency-selector" title="Select your currency">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select" aria-label="Currency Selector">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle" title="Toggle Snowfall">
+          ❄️ Snow: ON
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. SITE HEADER
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text">
+          <span>NOËL</span> &amp; CO.
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="#bundle-spotlight" class="nav-link">Holiday Hampers <span class="nav-badge-new">Save 21%</span></a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <a href="collections.html" class="action-btn" aria-label="Search catalog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Open Shopping Bag">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;">
+        <span>NOËL</span> &amp; CO.
+      </div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem; color:var(--color-text-main);">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html" class="active">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop All Holiday Items <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide 2024 <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="product.html?id=prod-candle">Featured: Holiday Candle <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="cart.html">View Full Cart <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="checkout.html">Direct Checkout <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html">Shipping Cutoff Dates (US/EU) <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="about.html">Our Craftsmanship Story <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="contact.html">Customer Care &amp; Concierge <span>→</span></a></li>
+      </ul>
+    </div>
+    <div class="mobile-nav-footer">
+      <div style="font-size:0.85rem; margin-bottom:8px; font-weight:600; color:var(--color-primary-forest);">Select Currency:</div>
+      <select id="mobile-currency-select" class="checkout-input" style="padding:8px 12px; font-size:0.85rem;">
+        <option value="USD">🇺🇸 United States (USD $)</option>
+        <option value="EUR">🇪🇺 European Union (EUR €)</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       4. HOLIDAY SHIPPING CUTOFF URGENCY BANNER
+       ========================================================================== -->
+  <section class="shipping-urgency-banner" aria-label="Holiday Cutoff Countdown">
+    <div class="container urgency-grid">
+      <div class="urgency-title">
+        <svg class="icon-bell" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        <span>CHRISTMAS DELIVERY COUNTDOWN (USA &amp; EU Express):</span>
+      </div>
+
+      <div class="countdown-box">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-days">05</div>
+          <div class="countdown-lbl">Days</div>
+        </div>
+        <span style="font-weight:bold; color:var(--color-gold-light);">:</span>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">14</div>
+          <div class="countdown-lbl">Hours</div>
+        </div>
+        <span style="font-weight:bold; color:var(--color-gold-light);">:</span>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-mins">28</div>
+          <div class="countdown-lbl">Mins</div>
+        </div>
+        <span style="font-weight:bold; color:var(--color-gold-light);">:</span>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-secs">42</div>
+          <div class="countdown-lbl">Secs</div>
+        </div>
+      </div>
+
+      <div class="urgency-guarantee">
+        ✓ Guaranteed on time or 100% Refund
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. HERO BANNER
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="hero-bg-wrapper">
+      <img src="assets/images/hero-banner.jpg" alt="Cozy Christmas Living Room" class="hero-bg-image">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <span class="hero-badge">The Holiday Collection 2024</span>
+      <h1 class="hero-title">
+        Heirloom Gifts for <em>Magical</em> Christmas Evenings
+      </h1>
+      <p class="hero-description">
+        Meticulously hand-poured botanical candles, mouth-blown European glass ornaments, and Scandinavian merino wool throws. Designed to make your holiday traditions shine brighter.
+      </p>
+      
+      <div class="hero-buttons">
+        <a href="collections.html" class="btn btn-gold">
+          Shop Holiday Catalog
+        </a>
+        <a href="gift-guide.html" class="btn btn-outline">
+          Explore Holiday Gift Guide
+        </a>
+      </div>
+
+      <div class="hero-perks">
+        <div class="perk-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Free Express Shipping over $75 / €70</span>
+        </div>
+        <div class="perk-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Complimentary Gift Box &amp; Bow</span>
+        </div>
+        <div class="perk-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Extended Returns to Jan 31</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.0 HOLIDAY STORY HIGHLIGHTS (Circular Categories)
+       ========================================================================== -->
+  <section class="story-categories-section" aria-label="Popular Holiday Categories">
+    <div class="container">
+      <div class="story-categories-scroll">
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="assets/images/product-candle.jpg" alt="Botanical Candles" class="story-avatar-img">
+            <span class="story-badge">Hot</span>
+          </div>
+          <span class="story-label">Candles</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="assets/images/product-ornaments.jpg" alt="Glass Baubles" class="story-avatar-img">
+            <span class="story-badge">Heirloom</span>
+          </div>
+          <span class="story-label">Baubles</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=300&q=80" alt="Merino Throws" class="story-avatar-img">
+            <span class="story-badge">-26%</span>
+          </div>
+          <span class="story-label">Throws</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=300&q=80" alt="Gourmet Chocolates" class="story-avatar-img">
+            <span class="story-badge">Belgian</span>
+          </div>
+          <span class="story-label">Chocolates</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=300&q=80" alt="Heirloom Stockings" class="story-avatar-img">
+            <span class="story-badge">Custom</span>
+          </div>
+          <span class="story-label">Stockings</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1512474932049-78ac69ede12c?auto=format&fit=crop&w=300&q=80" alt="Music Boxes" class="story-avatar-img">
+            <span class="story-badge">Rare</span>
+          </div>
+          <span class="story-label">Music Boxes</span>
+        </a>
+
+        <a href="collections.html" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1543258103-a62bdc069871?auto=format&fit=crop&w=300&q=80" alt="Botanical Wreaths" class="story-avatar-img">
+            <span class="story-badge">Fresh</span>
+          </div>
+          <span class="story-label">Wreaths</span>
+        </a>
+
+        <a href="#bundle-spotlight" class="story-circle-item">
+          <div class="story-avatar-wrap">
+            <img src="assets/images/hero-banner.jpg" alt="Gift Hampers" class="story-avatar-img">
+            <span class="story-badge" style="background:var(--color-gold-accent); color:var(--color-primary-dark);">VIP</span>
+          </div>
+          <span class="story-label">Hampers</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.1 PRESS & MEDIA AUTHORITY TRUST BAR
+       ========================================================================== -->
+  <section class="press-bar" aria-label="Press and Media Features">
+    <div class="container">
+      <div class="press-bar__title">FEATURED &amp; ACCLAIMED BY GLOBAL TASTEMAKERS</div>
+      <div class="press-quotes-grid">
+        <div class="press-item">
+          <div class="press-logo-name">VOGUE</div>
+          <div class="press-quote-text">"The quintessential holiday centerpiece that elevates modern Christmas interiors."</div>
+        </div>
+        <div class="press-item">
+          <div class="press-logo-name">ELLE DECOR</div>
+          <div class="press-quote-text">"Heirloom European craftsmanship brought directly to American holiday hearths."</div>
+        </div>
+        <div class="press-item">
+          <div class="press-logo-name">ARCHITECTURAL DIGEST</div>
+          <div class="press-quote-text">"Sophisticated festive aesthetics with unmatched artisanal authenticity."</div>
+        </div>
+        <div class="press-item">
+          <div class="press-logo-name">FORBES</div>
+          <div class="press-quote-text">"The #1 breakout luxury holiday gift brand of 2024 for US and EU shoppers."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.15 SPEND & SAVE TIERED REWARDS LADDER
+       ========================================================================== -->
+  <section class="spend-save-section" aria-label="Spend and Save Rewards Ladder">
+    <div class="container">
+      <div class="spend-save-box">
+        <div class="spend-save-header">
+          <div class="spend-save-title">
+            <span>🎁 Holiday Tiered Rewards:</span> The More You Gift, The More You Unlock!
+          </div>
+          <div class="spend-save-status" id="ladder-status-msg">
+            🚚 Add $75.00 more to unlock Free Express Delivery!
+          </div>
+        </div>
+
+        <div class="ladder-track-wrapper">
+          <div class="ladder-track">
+            <div class="ladder-fill" id="ladder-progress-fill"></div>
+          </div>
+          <div class="ladder-milestones">
+            <div class="ladder-step" id="ladder-step-1">
+              <div class="ladder-step-dot"></div>
+              <span class="ladder-step-name">Tier 1: Free Express Shipping</span>
+              <span class="ladder-step-target">$75 / €70 Order</span>
+            </div>
+            <div class="ladder-step" id="ladder-step-2">
+              <div class="ladder-step-dot"></div>
+              <span class="ladder-step-name">Tier 2: Free Luxury Candle ($38 Val)</span>
+              <span class="ladder-step-target">$120 / €110 Order</span>
+            </div>
+            <div class="ladder-step" id="ladder-step-3">
+              <div class="ladder-step-dot"></div>
+              <span class="ladder-step-name">Tier 3: Extra 20% OFF (Code: NOEL20)</span>
+              <span class="ladder-step-target">$180 / €165 Order</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.2 HOLIDAY DOOR-BUSTER FLASH DEAL BANNER
+       ========================================================================== -->
+  <section class="flash-deal-section" aria-label="Today's Flash Deal">
+    <div class="container">
+      <div class="flash-deal-banner">
+        <div>
+          <div class="flash-badge-row">
+            <span class="flash-tag">⚡ TODAY'S DOOR-BUSTER DEAL</span>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--color-festive-red);">Save 35% OFF Today Only</span>
+          </div>
+          <h2 style="font-family:var(--font-heading); font-size:1.85rem; color:var(--color-primary-forest); margin-bottom:8px; line-height:1.2;">
+            Winter Botanical Soy Candle &amp; Wick Trimmer Set
+          </h2>
+          <p style="font-size:0.92rem; color:var(--color-text-muted); margin-bottom:16px; line-height:1.5;">
+            Handcrafted with Siberian fir needle, clove bud, and amber. Arrives in a bespoke gold-stamped presentation box with complimentary personalized gift note.
+          </p>
+          <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:18px;">
+            <span style="font-size:1.6rem; font-weight:800; color:var(--color-festive-red);">$38.00 <span style="font-size:0.85rem; color:var(--color-text-light);">/ €35.00</span></span>
+            <span style="font-size:1.05rem; text-decoration:line-through; color:var(--color-text-light);">$58.00 / €54.00</span>
+            <span style="background:#e8f5e9; color:#2e7d32; font-size:0.75rem; font-weight:700; padding:3px 8px; border-radius:4px;">In Stock: Only 14 Left</span>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="window.NoelApp.addToCart('prod-candle', 1)" style="padding:12px 28px;">
+              Claim Door-Buster Deal 🎁
+            </button>
+            <a href="product.html?id=prod-candle" class="btn btn-outline" style="padding:12px 20px; font-size:0.85rem;">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <div style="text-align:center; background:#fbf9f6; border-radius:12px; padding:24px; border:1px solid rgba(212,175,55,0.3);">
+          <div style="font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--color-primary-forest); margin-bottom:10px;">
+            ⏳ Deal Ends In:
+          </div>
+          <div class="flash-countdown" style="justify-content:center; margin-bottom:16px;">
+            <div>
+              <div class="flash-timer-box" id="flash-hrs">05</div>
+              <div style="font-size:0.7rem; color:var(--color-text-muted); margin-top:4px;">Hours</div>
+            </div>
+            <span style="font-weight:bold; font-size:1.2rem; color:var(--color-primary-forest); margin-top:-14px;">:</span>
+            <div>
+              <div class="flash-timer-box" id="flash-mins">42</div>
+              <div style="font-size:0.7rem; color:var(--color-text-muted); margin-top:4px;">Mins</div>
+            </div>
+            <span style="font-weight:bold; font-size:1.2rem; color:var(--color-primary-forest); margin-top:-14px;">:</span>
+            <div>
+              <div class="flash-timer-box" id="flash-secs">19</div>
+              <div style="font-size:0.7rem; color:var(--color-text-muted); margin-top:4px;">Secs</div>
+            </div>
+          </div>
+          <img src="assets/images/product-candle.jpg" alt="Winter Candle Flash Deal" style="width:100%; max-width:240px; height:160px; object-fit:cover; border-radius:8px; margin:0 auto; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.3 HOLIDAY BEST SELLERS LEADERBOARD
+       ========================================================================== -->
+  <section class="bestsellers-section" aria-label="Holiday Best Sellers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Top Coveted Treasures of 2024</span>
+        <h2 class="section-title">Holiday Best Sellers Leaderboard</h2>
+        <p class="section-description">
+          Ranked #1 for Christmas gifting by over 45,000 households in the US and Europe. Selling quickly with guaranteed pre-holiday delivery.
+        </p>
+      </div>
+
+      <div class="bestsellers-grid">
+        <!-- Rank #1: Candle -->
+        <div class="bestseller-card">
+          <span class="bestseller-rank-tag">#1 Best Seller</span>
+          <div class="bestseller-img-wrap">
+            <img src="assets/images/product-candle.jpg" alt="Winter Spice Candle" loading="lazy">
+          </div>
+          <div class="bestseller-content">
+            <div class="bestseller-velocity">🔥 84 purchased in last 24h</div>
+            <h3 class="bestseller-title">
+              <a href="product.html?id=prod-candle">Winter Spice &amp; Pine Luxury Candle</a>
+            </h3>
+            <div class="bestseller-rating">
+              <span class="bestseller-stars">★★★★★</span>
+              <span>4.9 (142 reviews)</span>
+            </div>
+            <div class="bestseller-price-row">
+              <span class="bestseller-price">$38.00 <span style="font-size:0.8rem; font-weight:500; color:#888;">/ €35.00</span></span>
+              <span class="bestseller-orig-price">$48.00 / €45.00</span>
+            </div>
+            <div class="bestseller-actions">
+              <button class="btn-bestseller-add" onclick="window.NoelApp.addToCart('prod-candle', 1)">
+                Add to Bag 🛍️
+              </button>
+              <button class="btn-bestseller-quick" onclick="window.NoelApp.openQuickView('prod-candle')" aria-label="Quick View">
+                👁️
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rank #2: Ornaments -->
+        <div class="bestseller-card">
+          <span class="bestseller-rank-tag">#2 Most Gifted</span>
+          <div class="bestseller-img-wrap">
+            <img src="assets/images/product-ornaments.jpg" alt="Heirloom Glass Baubles" loading="lazy">
+          </div>
+          <div class="bestseller-content">
+            <div class="bestseller-velocity">⚡ Only 9 collector boxes left</div>
+            <h3 class="bestseller-title">
+              <a href="product.html?id=prod-ornaments">Aethelred Heirloom Glass Baubles (6pk)</a>
+            </h3>
+            <div class="bestseller-rating">
+              <span class="bestseller-stars">★★★★★</span>
+              <span>5.0 (98 reviews)</span>
+            </div>
+            <div class="bestseller-price-row">
+              <span class="bestseller-price">$64.00 <span style="font-size:0.8rem; font-weight:500; color:#888;">/ €59.00</span></span>
+              <span class="bestseller-orig-price">$78.00 / €72.00</span>
+            </div>
+            <div class="bestseller-actions">
+              <button class="btn-bestseller-add" onclick="window.NoelApp.addToCart('prod-ornaments', 1)">
+                Add to Bag 🛍️
+              </button>
+              <button class="btn-bestseller-quick" onclick="window.NoelApp.openQuickView('prod-ornaments')" aria-label="Quick View">
+                👁️
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rank #3: Blanket -->
+        <div class="bestseller-card">
+          <span class="bestseller-rank-tag">#3 Winter Favorite</span>
+          <div class="bestseller-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Merino Wool Blanket" loading="lazy">
+          </div>
+          <div class="bestseller-content">
+            <div class="bestseller-velocity">🚚 Free Worldwide Express Shipping</div>
+            <h3 class="bestseller-title">
+              <a href="product.html?id=prod-blanket">Nordic Chunky Merino Wool Blanket</a>
+            </h3>
+            <div class="bestseller-rating">
+              <span class="bestseller-stars">★★★★★</span>
+              <span>4.8 (215 reviews)</span>
+            </div>
+            <div class="bestseller-price-row">
+              <span class="bestseller-price">$89.00 <span style="font-size:0.8rem; font-weight:500; color:#888;">/ €82.00</span></span>
+              <span class="bestseller-orig-price">$120.00 / €110.00</span>
+            </div>
+            <div class="bestseller-actions">
+              <button class="btn-bestseller-add" onclick="window.NoelApp.addToCart('prod-blanket', 1)">
+                Add to Bag 🛍️
+              </button>
+              <button class="btn-bestseller-quick" onclick="window.NoelApp.openQuickView('prod-blanket')" aria-label="Quick View">
+                👁️
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rank #4: Chocolates -->
+        <div class="bestseller-card">
+          <span class="bestseller-rank-tag">#4 Staff Pick</span>
+          <div class="bestseller-img-wrap">
+            <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80" alt="Artisanal Chocolates" loading="lazy">
+          </div>
+          <div class="bestseller-content">
+            <div class="bestseller-velocity">🍫 Handcrafted Master Chocolatier</div>
+            <h3 class="bestseller-title">
+              <a href="product.html?id=prod-chocolate">Artisanal Holiday Truffles (24pcs)</a>
+            </h3>
+            <div class="bestseller-rating">
+              <span class="bestseller-stars">★★★★★</span>
+              <span>4.9 (310 reviews)</span>
+            </div>
+            <div class="bestseller-price-row">
+              <span class="bestseller-price">$42.00 <span style="font-size:0.8rem; font-weight:500; color:#888;">/ €38.00</span></span>
+              <span class="bestseller-orig-price">$50.00 / €46.00</span>
+            </div>
+            <div class="bestseller-actions">
+              <button class="btn-bestseller-add" onclick="window.NoelApp.addToCart('prod-chocolate', 1)">
+                Add to Bag 🛍️
+              </button>
+              <button class="btn-bestseller-quick" onclick="window.NoelApp.openQuickView('prod-chocolate')" aria-label="Quick View">
+                👁️
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5.4 CURATED CATEGORY SHOWCASE BENTO GRID
+       ========================================================================== -->
+  <section class="category-showcase-section" aria-label="Shop by Curated Collections">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">The Holiday Atelier</span>
+        <h2 class="section-title">Explore Our Curated Collections</h2>
+        <p class="section-description">
+          Each piece is crafted by generational artisans to transform ordinary winter evenings into lifelong family traditions.
+        </p>
+      </div>
+
+      <div class="category-bento-grid">
+        <!-- Tile 1: Large Featured (Candles & Scents) -->
+        <a href="collections.html" class="category-bento-card card-featured">
+          <img src="assets/images/product-candle.jpg" alt="Botanical Soy Candles" class="bento-bg-img" loading="lazy">
+          <div class="bento-overlay"></div>
+          <div class="bento-info">
+            <span class="bento-tag gold">Artisan Spotlight</span>
+            <h3 class="bento-title">Botanical Candles &amp; Fireside Scents</h3>
+            <p class="bento-subtitle">Infused with real Fraser fir, clove, and cinnamon. Dual wood-wick crackle with 65h burn.</p>
+            <span class="bento-link-text">Shop Candle Collection →</span>
+          </div>
+        </a>
+
+        <!-- Tile 2: Glass Baubles -->
+        <a href="collections.html" class="category-bento-card">
+          <img src="assets/images/product-ornaments.jpg" alt="Mouth-Blown Glass Baubles" class="bento-bg-img" loading="lazy">
+          <div class="bento-overlay"></div>
+          <div class="bento-info">
+            <span class="bento-tag">Heirloom Quality</span>
+            <h3 class="bento-title" style="font-size:1.35rem;">Glass Baubles &amp; Finials</h3>
+            <span class="bento-link-text">Shop Tree Heirlooms →</span>
+          </div>
+        </a>
+
+        <!-- Tile 3: Warm Living -->
+        <a href="collections.html" class="category-bento-card">
+          <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Chunky Merino Throws" class="bento-bg-img" loading="lazy">
+          <div class="bento-overlay"></div>
+          <div class="bento-info">
+            <span class="bento-tag">Save Up to 26%</span>
+            <h3 class="bento-title" style="font-size:1.35rem;">Merino Throws &amp; Living</h3>
+            <span class="bento-link-text">Shop Cozy Comforts →</span>
+          </div>
+        </a>
+
+        <!-- Tile 4: Confections -->
+        <a href="collections.html" class="category-bento-card">
+          <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80" alt="Holiday Truffles" class="bento-bg-img" loading="lazy">
+          <div class="bento-overlay"></div>
+          <div class="bento-info">
+            <span class="bento-tag gold">Belgian Cacao</span>
+            <h3 class="bento-title" style="font-size:1.35rem;">Artisanal Confections</h3>
+            <span class="bento-link-text">Shop Gourmet Gifts →</span>
+          </div>
+        </a>
+
+        <!-- Tile 5: Stockings & Keepsakes -->
+        <a href="collections.html" class="category-bento-card">
+          <img src="https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=600&q=80" alt="Velvet Stockings" class="bento-bg-img" loading="lazy">
+          <div class="bento-overlay"></div>
+          <div class="bento-info">
+            <span class="bento-tag">Under $25 / €22</span>
+            <h3 class="bento-title" style="font-size:1.35rem;">Stockings &amp; Keepsakes</h3>
+            <span class="bento-link-text">Shop Keepsakes →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. GIFT GUIDE FILTER TABS
+       ========================================================================== -->
+  <section class="products-section" id="gift-guide">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Curated Holiday Gift Guide</span>
+        <h2 class="section-title">Thoughtfully Crafted For Everyone on Your List</h2>
+        <p class="section-description">
+          Find the perfect festive treasure by recipient or price tier, with verified 5-star holiday reviews.
+        </p>
+      </div>
+
+      <div class="gift-guide-tabs">
+        <button class="tab-btn active" data-filter="all">All Holiday Gifts</button>
+        <button class="tab-btn" data-filter="under-25">Gifts Under $25 / €22</button>
+        <button class="tab-btn" data-filter="under-50">Under $50 / €45</button>
+        <button class="tab-btn" data-filter="her">For Her</button>
+        <button class="tab-btn" data-filter="him">For Him</button>
+        <button class="tab-btn" data-filter="home">For the Home</button>
+        <button class="tab-btn" data-filter="kids">Kids &amp; Keepsakes</button>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Rendered dynamically by theme.js -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="collections.html" class="btn btn-primary" style="padding: 14px 36px;">
+          View Complete Holiday Catalog (8+ Products) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6.1 SHOPPABLE FESTIVE ROOM LOOKBOOK (Interactive Hotspots)
+       ========================================================================== -->
+  <section class="shoppable-room-section" aria-label="Shoppable Room Lookbook">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">Interactive Holiday Lookbook</span>
+        <h2 class="section-title">Shop The Festive Hearth Look</h2>
+        <p class="section-description">
+          Click the glowing golden pins to explore the handcrafted heirlooms illuminating our holiday fireside scene.
+        </p>
+      </div>
+
+      <div class="lookbook-wrapper">
+        <img src="assets/images/hero-banner.jpg" alt="Shoppable Festive Christmas Living Room" class="lookbook-main-img">
+
+        <!-- Hotspot 1: Glass Baubles on Tree -->
+        <button class="hotspot-pin" style="top: 35%; left: 24%;" data-target="pop-baubles" aria-label="View Glass Baubles">1</button>
+        <div class="hotspot-popover" id="pop-baubles" style="top: 22%; left: 26%;">
+          <img src="assets/images/product-ornaments.jpg" alt="European Glass Baubles" class="hotspot-popover-thumb">
+          <div class="hotspot-popover-info">
+            <div class="hotspot-popover-title">Heirloom Glass Baubles</div>
+            <div class="hotspot-popover-price">$48.00 / €44.00</div>
+            <a href="product.html?id=prod-ornaments" class="hotspot-btn-add">Shop Piece →</a>
+          </div>
+        </div>
+
+        <!-- Hotspot 2: Candle on Table -->
+        <button class="hotspot-pin" style="top: 68%; left: 45%;" data-target="pop-candle-room" aria-label="View Botanical Candle">2</button>
+        <div class="hotspot-popover" id="pop-candle-room" style="top: 50%; left: 47%;">
+          <img src="assets/images/product-candle.jpg" alt="Botanical Candle" class="hotspot-popover-thumb">
+          <div class="hotspot-popover-info">
+            <div class="hotspot-popover-title">Winter Spice Candle</div>
+            <div class="hotspot-popover-price">$38.00 / €35.00</div>
+            <a href="product.html?id=prod-candle" class="hotspot-btn-add">Shop Piece →</a>
+          </div>
+        </div>
+
+        <!-- Hotspot 3: Merino Wool Blanket on Couch -->
+        <button class="hotspot-pin" style="top: 62%; left: 78%;" data-target="pop-blanket-room" aria-label="View Merino Wool Blanket">3</button>
+        <div class="hotspot-popover" id="pop-blanket-room" style="top: 45%; left: 56%;">
+          <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80" alt="Nordic Blanket" class="hotspot-popover-thumb">
+          <div class="hotspot-popover-info">
+            <div class="hotspot-popover-title">Nordic Merino Wool Blanket</div>
+            <div class="hotspot-popover-price">$98.00 / €89.00</div>
+            <a href="product.html?id=prod-blanket" class="hotspot-btn-add">Shop Piece →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6.15 SECRET SANTA MYSTERY VOUCHER WIDGET
+       ========================================================================== -->
+  <section class="secret-santa-banner" aria-label="Secret Santa Holiday Voucher">
+    <div class="container">
+      <div class="secret-santa-box">
+        <div class="secret-santa-left">
+          <h3 class="secret-santa-title">🎅 Secret Santa Holiday Mystery Voucher</h3>
+          <p class="secret-santa-desc">
+            Unwrap your personalized seasonal perk! Click the golden ribbon below to reveal your private discount for today's order.
+          </p>
+        </div>
+        <div>
+          <button class="secret-scratch-btn" id="secret-scratch-btn" onclick="window.NoelApp.revealSecretSanta()">
+            <span>🎁</span> Click to Unwrap Secret Voucher
+          </button>
+          <div class="voucher-revealed-pill" id="voucher-revealed-pill">
+            ✓ Code <strong>SANTA15</strong> Copied! (15% OFF)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6.2 HOLIDAY GIFT MATCHMAKER QUIZ WIDGET
+       ========================================================================== -->
+  <section class="quiz-section" aria-label="Holiday Gift Matchmaker">
+    <div class="container">
+      <div class="section-header" style="color:#ffffff;">
+        <span class="section-pretitle" style="color:var(--color-gold-light);">Interactive Concierge</span>
+        <h2 class="section-title" style="color:#ffffff;">The 30-Second Holiday Gift Matchmaker</h2>
+        <p class="section-description" style="color:#e0e7e2; max-width:640px; margin:0 auto;">
+          Short on time? Answer 3 swift questions to uncover the exact heirloom treasure they'll cherish most on Christmas morning.
+        </p>
+      </div>
+
+      <div class="quiz-card-box">
+        <div id="gift-quiz-content">
+          <!-- Rendered dynamically by initGiftMatchmaker() in theme.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. HOLIDAY HAMPER BUNDLE SPOTLIGHT
+       ========================================================================== -->
+  <section class="bundle-spotlight" id="bundle-spotlight">
+    <div class="container" id="bundle-spotlight-content">
+      <!-- Rendered dynamically by theme.js -->
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7.05 BRAND VALUE COMPARISON MATRIX (Why Noël & Co.)
+       ========================================================================== -->
+  <section class="brand-comparison-section" aria-label="Why Choose Noel and Co">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">The Heirloom Difference</span>
+        <h2 class="section-title">Why Discerning Families Choose NOËL &amp; CO.</h2>
+        <p class="section-description">
+          See how our handcrafted standards compare to mass-market department stores and standard online retailers.
+        </p>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width:30%;">Quality &amp; Experience Dimension</th>
+              <th class="brand-col-highlight" style="width:35%;">✨ NOËL &amp; CO.</th>
+              <th style="width:35%; color:var(--color-text-muted);">Standard Department Stores / Amazon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Materials &amp; Health Safety</strong></td>
+              <td class="brand-cell-highlight">
+                <span class="check-icon">✓</span> 100% Organic Coconut-Soy Wax, Pure Botanical Oils, Mouth-Blown Glass
+              </td>
+              <td>
+                <span class="cross-icon">✕</span> Toxic paraffin wax, synthetic chemical fumes, molded cheap plastic
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Holiday Arrival Guarantee</strong></td>
+              <td class="brand-cell-highlight">
+                <span class="check-icon">✓</span> Guaranteed on-time pre-Dec 24 delivery with real-time tracking (or 100% Refund)
+              </td>
+              <td>
+                <span class="cross-icon">✕</span> Unpredictable holiday shipping backlogs and missed Christmas deadlines
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Luxury Presentation Packaging</strong></td>
+              <td class="brand-cell-highlight">
+                <span class="check-icon">✓</span> Complimentary signature emerald gift box, satin ribbon, and gold wax seal
+              </td>
+              <td>
+                <span class="cross-icon">✕</span> Plain brown corrugated cardboard mailer or extra $8+ gift bag fee
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Holiday Return Policy</strong></td>
+              <td class="brand-cell-highlight">
+                <span class="check-icon">✓</span> Generous 60-day stress-free returns &amp; exchanges until January 31, 2025
+              </td>
+              <td>
+                <span class="cross-icon">✕</span> Strict 14 to 30 day return window with restocking fees
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Artisanal Craftsmanship</strong></td>
+              <td class="brand-cell-highlight">
+                <span class="check-icon">✓</span> Hand-poured &amp; mouth-blown in limited small batches by generational ateliers
+              </td>
+              <td>
+                <span class="cross-icon">✕</span> Mass-produced factory assembly lines with frequent defects
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7.08 SHOPPABLE HOLIDAY REELS / VIDEO SHOWCASE
+       ========================================================================== -->
+  <section class="reels-section" aria-label="Shoppable Holiday Reels">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">As Seen On Social</span>
+        <h2 class="section-title">Holiday Magic In Motion</h2>
+        <p class="section-description">
+          Watch how our holiday heirlooms bring warmth, crackling light, and timeless festive elegance to real homes.
+        </p>
+      </div>
+
+      <div class="reels-grid">
+        <!-- Reel 1 -->
+        <div class="reel-card" onclick="window.location.href='product.html?id=prod-candle'">
+          <img src="assets/images/product-candle.jpg" alt="Crackling Candle ASMR" class="reel-bg-img" loading="lazy">
+          <span class="reel-views-badge">👁️ 1.8M views</span>
+          <div class="reel-play-btn">▶</div>
+          <div class="reel-info-bottom">
+            <div class="reel-title">The crackling wood wick fireside glow ASMR 🕯️</div>
+            <a href="product.html?id=prod-candle" class="reel-shoppable-pill">Shop Candle ($38) →</a>
+          </div>
+        </div>
+
+        <!-- Reel 2 -->
+        <div class="reel-card" onclick="window.location.href='product.html?id=prod-ornaments'">
+          <img src="assets/images/product-ornaments.jpg" alt="Unboxing Glass Baubles" class="reel-bg-img" loading="lazy">
+          <span class="reel-views-badge">👁️ 2.4M views</span>
+          <div class="reel-play-btn">▶</div>
+          <div class="reel-info-bottom">
+            <div class="reel-title">Unboxing the 24K gilded mouth-blown baubles ✨</div>
+            <a href="product.html?id=prod-ornaments" class="reel-shoppable-pill">Shop Baubles ($64) →</a>
+          </div>
+        </div>
+
+        <!-- Reel 3 -->
+        <div class="reel-card" onclick="window.location.href='product.html?id=prod-blanket'">
+          <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Merino Throw Styling" class="reel-bg-img" loading="lazy">
+          <span class="reel-views-badge">👁️ 940K views</span>
+          <div class="reel-play-btn">▶</div>
+          <div class="reel-info-bottom">
+            <div class="reel-title">Styling a cozy Scandinavian winter couch 🧶</div>
+            <a href="product.html?id=prod-blanket" class="reel-shoppable-pill">Shop Blanket ($89) →</a>
+          </div>
+        </div>
+
+        <!-- Reel 4 -->
+        <div class="reel-card" onclick="window.location.href='product.html?id=prod-chocolate'">
+          <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80" alt="Belgian Truffle Tasting" class="reel-bg-img" loading="lazy">
+          <span class="reel-views-badge">👁️ 720K views</span>
+          <div class="reel-play-btn">▶</div>
+          <div class="reel-info-bottom">
+            <div class="reel-title">Taste-testing eggnog &amp; champagne truffles 🍫</div>
+            <a href="product.html?id=prod-chocolate" class="reel-shoppable-pill">Shop Truffles ($42) →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7.1 #NOELATHOME UGC COMMUNITY WALL
+       ========================================================================== -->
+  <section class="ugc-section" aria-label="Customer Community Wall">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pretitle">#NoelAtHome Community</span>
+        <h2 class="section-title">Cherished Moments in Real Holiday Homes</h2>
+        <p class="section-description">
+          Over 45,000 households in the US and Europe celebrated with our handcrafted heirlooms last holiday season. Tag <strong>@NoelAndCo</strong> on Instagram to be featured.
+        </p>
+      </div>
+
+      <div class="ugc-grid">
+        <div class="ugc-card">
+          <img src="https://images.unsplash.com/photo-1543258103-a62bdc069871?auto=format&fit=crop&w=600&q=80" alt="Customer home tree with baubles" loading="lazy">
+          <div class="ugc-overlay-info">
+            <div>
+              <strong>@sophia.living</strong>
+              <div style="font-size:0.72rem; opacity:0.85;">Manhattan, New York</div>
+            </div>
+            <span>❤️ 1.4k</span>
+          </div>
+        </div>
+
+        <div class="ugc-card">
+          <img src="https://images.unsplash.com/photo-1512474932049-78ac69ede12c?auto=format&fit=crop&w=600&q=80" alt="Cozy evening with candles" loading="lazy">
+          <div class="ugc-overlay-info">
+            <div>
+              <strong>@nordic.cottage</strong>
+              <div style="font-size:0.72rem; opacity:0.85;">Copenhagen, Denmark</div>
+            </div>
+            <span>❤️ 2.1k</span>
+          </div>
+        </div>
+
+        <div class="ugc-card">
+          <img src="https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=600&q=80" alt="Fireplace with stockings" loading="lazy">
+          <div class="ugc-overlay-info">
+            <div>
+              <strong>@theclarkfamily</strong>
+              <div style="font-size:0.72rem; opacity:0.85;">Denver, Colorado</div>
+            </div>
+            <span>❤️ 980</span>
+          </div>
+        </div>
+
+        <div class="ugc-card">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Holiday table setting" loading="lazy">
+          <div class="ugc-overlay-info">
+            <div>
+              <strong>@chateau_festive</strong>
+              <div style="font-size:0.72rem; opacity:0.85;">Lyon, France</div>
+            </div>
+            <span>❤️ 3.2k</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. TRUST BADGES
+       ========================================================================== -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Guaranteed Holiday Delivery</h4>
+            <p class="trust-desc">Direct dispatch from Ohio (USA) &amp; Frankfurt (EU) with live tracking.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Complimentary Gift Packaging</h4>
+            <p class="trust-desc">Every order arrives in our signature matte green gift box with satin ribbon.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Extended Holiday Returns</h4>
+            <p class="trust-desc">Relaxed 60-day return policy. Return or exchange any gift until January 31, 2025.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">100% Encrypted Checkout</h4>
+            <p class="trust-desc">Protected by Shopify 256-bit SSL. Shop Pay, Apple Pay, Klarna, PayPal supported.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. SHOPIFY-STYLE SLIDE-OUT CART DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">
+        <span>🎁</span> Your Holiday Bag
+      </h3>
+      <button class="btn-close-drawer" id="close-cart-btn" aria-label="Close Shopping Bag">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="cart-shipping-bar">
+      <div class="shipping-bar-text" id="shipping-bar-msg">
+        You are only <strong>$27.00</strong> away from <strong>Free Holiday Shipping!</strong>
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="shipping-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="cart-drawer__body">
+      <div class="cart-empty-state" id="cart-empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <p style="font-size:1.05rem; font-weight:600; color:var(--color-primary-forest); margin-bottom:6px;">Your holiday bag is empty</p>
+        <p style="font-size:0.85rem;">Discover our festive candles, ornaments, and curated gift hampers!</p>
+      </div>
+
+      <div id="cart-items-list"></div>
+    </div>
+
+    <div class="cart-drawer__footer" id="cart-footer-box" style="display:none;">
+      <div class="gift-wrap-option">
+        <input type="checkbox" id="gift-wrap-checkbox" class="gift-wrap-checkbox">
+        <label for="gift-wrap-checkbox" class="gift-wrap-content">
+          <strong>Add Deluxe Gift Wrapping &amp; Handwritten Card (<span id="gift-wrap-price-label">+ $4.99</span>)</strong>
+          Hand-wrapped in luxury holiday paper with custom gold wax seal.
+        </label>
+      </div>
+
+      <div class="cart-subtotal-row" style="margin-top:14px;">
+        <span>Estimated Total</span>
+        <span class="cart-subtotal-amount" id="cart-subtotal-val">$0.00</span>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
+        <a href="cart.html" class="btn btn-outline" style="flex:1; padding: 12px; font-size: 0.88rem; color: var(--color-primary-forest); border-color: var(--color-border);">
+          View Full Cart
+        </a>
+        <a href="checkout.html" class="btn btn-primary" style="flex:1.5; padding: 12px; font-size: 0.88rem;">
+          Checkout Now →
+        </a>
+      </div>
+
+      <div class="cart-payment-icons">
+        <span class="payment-badge">Shop Pay</span>
+        <span class="payment-badge">Apple Pay</span>
+        <span class="payment-badge">PayPal</span>
+        <span class="payment-badge">Klarna</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       10. QUICK VIEW PRODUCT MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="quickview-modal">
+    <div class="modal-card">
+      <button class="btn-close-modal" id="close-modal-btn" aria-label="Close modal">✕</button>
+      <div id="quickview-content"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       11. MOBILE STICKY BOTTOM NAVIGATION BAR (Thumb Friendly)
+       ========================================================================== -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile quick navigation">
+    <a href="index.html" class="bottom-nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="gift-guide.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+      <span>Gift Guide</span>
+    </a>
+    <button class="bottom-nav-item" id="bottom-cart-toggle" aria-label="View Shopping Bag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </button>
+  </nav>
+
+  <!-- ==========================================================================
+       12. SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-text" style="color:#ffffff; margin-bottom:14px;">
+            <span>NOËL</span> &amp; CO.
+          </div>
+          <p style="font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:20px;">
+            Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018.
+          </p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Enter email for 15% discount..." class="newsletter-input" aria-label="Email address">
+            <button class="newsletter-btn" onclick="window.NoelApp.showToast('Subscribed! Use code XMAS15 at checkout.')">Join</button>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html">All Holiday Treasures</a></li>
+            <li><a href="gift-guide.html">Holiday Gift Guide</a></li>
+            <li><a href="product.html?id=prod-candle">Botanical Candles</a></li>
+            <li><a href="product.html?id=prod-ornaments">Glass Baubles</a></li>
+            <li><a href="cart.html">View Cart Page</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="shipping-policy.html">Shipping Cutoff Dates</a></li>
+            <li><a href="shipping-policy.html">Track Holiday Delivery</a></li>
+            <li><a href="shipping-policy.html">60-Day Returns</a></li>
+            <li><a href="contact.html">Contact &amp; FAQ</a></li>
+            <li><a href="about.html">Our Craftsmanship</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Worldwide Fulfillment</h4>
+          <p style="font-size:0.86rem; margin-bottom:12px;">
+            🇺🇸 USA: 2–3 Days Priority via FedEx/USPS<br>
+            🇪🇺 EU: 2–4 Days Tracked via DHL Express
+          </p>
+          <div style="background:rgba(255,255,255,0.06); padding:12px; border-radius:6px; border:1px solid rgba(212,175,55,0.25);">
+            <span style="color:var(--color-gold-light); font-weight:700; font-size:0.82rem; display:block; margin-bottom:4px;">🎄 100% On-Time Guarantee</span>
+            <span style="font-size:0.78rem; color:#b7bfb9;">If your holiday gift does not arrive before Dec 24, your order is completely free.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved. Built with Shopify Architecture standards.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="shipping-policy.html">Privacy &amp; Terms</a>
+          <a href="contact.html">Support Concierge</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

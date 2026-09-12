@@ -1,0 +1,62 @@
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="{{ routes.root_url }}" class="site-brand">
+      <div class="brand-logo-text">
+        <span>{{ section.settings.logo_highlight | default: 'NOËL' }}</span> {{ section.settings.logo_suffix | default: '& CO.' }}
+      </div>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="site-nav">
+        {%- for link in linklists[section.settings.menu].links -%}
+          <li>
+            <a href="{{ link.url }}" class="nav-link {% if link.current %}active{% endif %}">
+              {{ link.title }}
+            </a>
+          </li>
+        {%- else -%}
+          <li><a href="#gift-guide" class="nav-link active">Gift Guide</a></li>
+          <li><a href="#products-section" class="nav-link">Ornaments &amp; Decor</a></li>
+          <li><a href="#bundle-spotlight" class="nav-link">Holiday Hampers <span class="nav-badge-new">Save 21%</span></a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" class="action-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+
+      <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span class="cart-counter" id="cart-counter">{{ cart.item_count }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_highlight",
+      "label": "Logo Prefix Highlight",
+      "default": "NOËL"
+    },
+    {
+      "type": "text",
+      "id": "logo_suffix",
+      "label": "Logo Suffix",
+      "default": "& CO."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Navigation Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

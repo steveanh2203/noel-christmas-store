@@ -1,0 +1,16 @@
+<div class="page-header-banner">
+  <div class="container">
+    <h1 class="page-title">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <p style="color: #d8dedb; max-width: 600px; margin: 0 auto;">{{ collection.description }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="container" style="padding: 60px 0;">
+  <div class="products-grid">
+    {% for product in collection.products %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </div>
+</div>

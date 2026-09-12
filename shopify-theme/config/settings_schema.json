@@ -1,0 +1,56 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Noël & Co. Luxury Christmas",
+    "theme_author": "Antigravity Luxury Commerce",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://help.shopify.com",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Holiday Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Deep Forest Green",
+        "default": "#102a1e"
+      },
+      {
+        "type": "color",
+        "id": "color_festive_red",
+        "label": "Festive Crimson Red",
+        "default": "#9e1b20"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_accent",
+        "label": "Champagne Gold Accent",
+        "default": "#d4af37"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Snow Cream Background",
+        "default": "#fbf9f6"
+      }
+    ]
+  },
+  {
+    "name": "Holiday Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_snow",
+        "label": "Enable Falling Snow Animation",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cutoff_date",
+        "label": "Holiday Shipping Cutoff Date",
+        "default": "December 18, 2024"
+      }
+    ]
+  }
+]

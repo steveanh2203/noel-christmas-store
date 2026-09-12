@@ -1,0 +1,70 @@
+<div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart">
+  <div class="cart-drawer__header">
+    <h3 class="cart-drawer__title">
+      <span>🎁</span> Your Holiday Bag
+    </h3>
+    <button class="btn-close-drawer" id="close-cart-btn" aria-label="Close">✕</button>
+  </div>
+
+  <div class="cart-shipping-bar">
+    <div class="shipping-bar-text" id="shipping-bar-msg">
+      Holiday Free Shipping Available on orders over {{ section.settings.free_shipping_threshold | default: '$75' }}
+    </div>
+    <div class="shipping-progress-track">
+      <div class="shipping-progress-fill" id="shipping-progress-fill" style="width: 70%;"></div>
+    </div>
+  </div>
+
+  <div class="cart-drawer__body">
+    {%- if cart.item_count == 0 -%}
+      <div class="cart-empty-state">
+        <p>Your holiday bag is currently empty.</p>
+      </div>
+    {%- else -%}
+      <div id="cart-items-list">
+        {%- for item in cart.items -%}
+          <div class="cart-item">
+            <img src="{{ item.image | image_url: width: 150 }}" alt="{{ item.title | escape }}" class="cart-item-img">
+            <div class="cart-item-details">
+              <h4 class="cart-item-title">{{ item.product.title }}</h4>
+              <span class="cart-item-price">{{ item.final_line_price | money }}</span>
+              <div class="cart-item-quantity">
+                <span class="qty-number">Qty: {{ item.quantity }}</span>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="cart-drawer__footer">
+    <div class="cart-subtotal-row">
+      <span>Subtotal</span>
+      <span class="cart-subtotal-amount">{{ cart.total_price | money }}</span>
+    </div>
+    <p class="cart-tax-note">Taxes and holiday shipping calculated at checkout</p>
+
+    <form action="{{ routes.cart_url }}" method="post">
+      <button type="submit" name="checkout" class="btn-checkout-now">
+        Checkout Now
+      </button>
+    </form>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "free_shipping_threshold",
+      "label": "Free Shipping Threshold",
+      "default": "$75"
+    }
+  ]
+}
+{% endschema %}

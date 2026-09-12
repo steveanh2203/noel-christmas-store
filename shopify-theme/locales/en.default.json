@@ -1,0 +1,15 @@
+{
+  "general": {
+    "cart": {
+      "view": "View Bag",
+      "checkout": "Secure Holiday Checkout",
+      "empty": "Your holiday bag is empty",
+      "subtotal": "Subtotal"
+    },
+    "holiday": {
+      "countdown_label": "Christmas Delivery Countdown",
+      "free_shipping_notice": "Free Express Shipping over $75 / €70",
+      "guarantee": "Guaranteed Pre-Christmas Delivery"
+    }
+  }
+}

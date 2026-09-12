@@ -1,0 +1,28 @@
+<div class="container" style="padding: 60px 0;">
+  <h1 class="page-title" style="color: var(--color-primary-forest); margin-bottom: 24px;">Your Shopping Bag</h1>
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post">
+      <div class="cart-table-card">
+        {% for item in cart.items %}
+          <div class="cart-item" style="grid-template-columns: 80px 1fr; padding: 14px 0;">
+            <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" style="border-radius:6px;">
+            <div class="cart-item-details">
+              <h4>{{ item.product.title }}</h4>
+              <span>{{ item.final_line_price | money }}</span>
+              <div style="margin-top: 6px;">Qty: {{ item.quantity }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div style="margin-top: 24px; text-align: right;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">Total: {{ cart.total_price | money }}</h3>
+        <button type="submit" name="checkout" class="btn btn-primary" style="padding: 14px 32px;">
+          Proceed to Checkout
+        </button>
+      </div>
+    </form>
+  {% else %}
+    <p>Your bag is currently empty.</p>
+  {% endif %}
+</div>

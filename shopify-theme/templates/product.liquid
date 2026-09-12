@@ -1,0 +1,83 @@
+<div class="container" style="padding: 48px 0;">
+  <div class="pdp-layout">
+    <!-- Gallery -->
+    <div class="pdp-gallery">
+      <div class="pdp-main-image">
+        <img src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product.title | escape }}">
+      </div>
+    </div>
+
+    <!-- Product Details & CRO Conversion Suite -->
+    <div class="pdp-info">
+      <!-- Live Social Proof -->
+      <div class="live-viewers-badge">
+        <span class="live-pulse-dot"></span>
+        <span><strong>28</strong> holiday shoppers are viewing this right now</span>
+      </div>
+
+      <h1 class="pdp-title">{{ product.title }}</h1>
+      <div class="pdp-price-box">
+        <span class="pdp-price-now">{{ product.price | money }}</span>
+        {% if product.compare_at_price > product.price %}
+          <span class="pdp-price-was">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+
+      <!-- Stock Urgency Meter -->
+      <div class="stock-meter-box">
+        <div class="stock-meter-header">
+          <span>⚠️ Low Holiday Stock</span>
+          <span style="color: var(--color-festive-red);">Selling Fast!</span>
+        </div>
+        <div class="stock-progress-track">
+          <div class="stock-progress-bar" style="width: 35%;"></div>
+        </div>
+      </div>
+
+      <!-- Delivery Estimator -->
+      <div class="delivery-estimator-box">
+        <div class="delivery-est-header">
+          <span>🚚 Guaranteed Pre-Christmas Arrival</span>
+          <span style="font-size: 0.78rem; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 4px;">100% On-Time</span>
+        </div>
+        <p style="font-size: 0.84rem; margin: 0;">
+          Order within <strong>03h 48m</strong> for guaranteed delivery before December 24 (USA &amp; EU).
+        </p>
+      </div>
+
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <div class="pdp-actions-row" id="pdp-main-actions" style="margin-top: 20px;">
+          <input type="number" name="quantity" value="1" min="1" class="qty-number" style="width: 50px; border: 1px solid #ccc; border-radius: 4px; padding: 10px;">
+          <button type="submit" class="pdp-btn-add">Add to Holiday Bag 🎁</button>
+        </div>
+        {{ form | payment_button }}
+      {% endform %}
+
+      <div style="margin-top: 30px; line-height: 1.7; color: var(--color-text-muted);">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Frequently Bought Together Module -->
+  <section class="fbt-section">
+    <h3 class="fbt-title">Frequently Bought Together</h3>
+    <p class="fbt-subtitle">Complete your holiday setup and save 15% on this curated holiday bundle</p>
+    <div class="fbt-grid">
+      <div class="fbt-products-row">
+        <div class="fbt-item-card">
+          <img src="{{ product.featured_image | image_url: width: 120 }}" alt="{{ product.title | escape }}">
+          <div>
+            <strong>{{ product.title }}</strong>
+            <div>{{ product.price | money }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="fbt-summary-box">
+        <span class="fbt-save-pill">🎁 Holiday Bundle Deal: Save 15%</span>
+        <button class="btn btn-gold" style="width: 100%;">Add Bundle to Bag</button>
+      </div>
+    </div>
+  </section>
+</div>

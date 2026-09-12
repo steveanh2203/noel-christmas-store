@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Official 2024 Holiday Gift Guide | NOËL & CO.</title>
+  <meta name="description" content="Curated Christmas gifts for everyone on your list: For Her, For Him, Secret Santa under $25, and luxury keepsake hampers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎁 <strong>Need Gifting Advice?</strong> Order before Dec 18 for guaranteed Christmas arrival</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link active">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html" class="active">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="cart.html">View Full Cart <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="checkout.html">Direct Checkout <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>The Holiday Gift Guide</span>
+      </div>
+      <h1 class="page-title">The Official 2024 Holiday Gift Guide</h1>
+      <p style="color: #d8dedb; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+        Take the guesswork out of gifting. Explore our hand-picked selections tailored for everyone on your Christmas list.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container">
+      <div class="products-grid" id="gift-guide-grid">
+        <!-- Rendered by theme.js -->
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="gift-guide.html" class="bottom-nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+      <span>Gift Guide</span>
+    </a>
+    <button class="bottom-nav-item" id="bottom-cart-toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </button>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved.</div>
+        <div><a href="shipping-policy.html">Shipping Cutoff Dates</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

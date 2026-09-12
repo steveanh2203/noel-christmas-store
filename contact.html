@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Concierge &amp; Support | NOËL & CO.</title>
+  <meta name="description" content="Reach our 24/7 Holiday Concierge for order tracking, expedited shipping inquiries, and corporate gift consulting.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎄 <strong>24/7 Holiday Concierge Service</strong> — Average response time under 2 hours</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="contact.html" class="active">Holiday Concierge <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html">Shipping Cutoffs <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Contact Concierge</span>
+      </div>
+      <h1 class="page-title">Holiday Customer Care</h1>
+      <p style="color: #d8dedb; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+        We are here around the clock throughout the holiday season to ensure your gifts arrive promptly.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container" style="max-width: 960px;">
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;">
+        <!-- Contact Form -->
+        <div class="contact-card-box">
+          <h2 style="font-family: var(--font-heading); color: var(--color-primary-forest); font-size: 1.6rem; margin-bottom: 8px;">
+            Send Our Concierge a Message
+          </h2>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">
+            Have a question about Christmas arrival dates or custom monogramming? Drop us a line.
+          </p>
+
+          <form onsubmit="event.preventDefault(); window.NoelApp.showToast('Message sent! Our concierge will reply within 2 hours.'); this.reset();">
+            <div class="form-grid-2">
+              <div>
+                <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:6px;">Your Name</label>
+                <input type="text" class="checkout-input" placeholder="e.g. Eleanor Vance" required>
+              </div>
+              <div>
+                <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:6px;">Email Address</label>
+                <input type="email" class="checkout-input" placeholder="eleanor@example.com" required>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:6px;">Inquiry Topic</label>
+              <select class="checkout-input">
+                <option>Pre-Christmas Delivery Confirmation</option>
+                <option>Track an Existing Holiday Order</option>
+                <option>Custom Gift Wrapping &amp; Card Message</option>
+                <option>Corporate &amp; Bulk Holiday Gifting</option>
+                <option>Product Question</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:6px;">Order Number (if applicable)</label>
+              <input type="text" class="checkout-input" placeholder="#NOEL-12345">
+            </div>
+
+            <div style="margin-bottom: 24px;">
+              <label style="display:block; font-size:0.82rem; font-weight:700; margin-bottom:6px;">Message</label>
+              <textarea class="checkout-input" rows="4" placeholder="How can we assist your holiday celebrations?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+              Send Message to Holiday Team
+            </button>
+          </form>
+        </div>
+
+        <!-- Direct Contact Details -->
+        <div>
+          <div style="background: var(--color-primary-forest); color: #fff; border-radius: var(--radius-md); padding: 32px; margin-bottom: 24px;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 16px; color: var(--color-gold-light);">
+              Direct Contact Lines
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 16px; font-size: 0.92rem;">
+              <div>
+                <strong style="color: var(--color-gold-light); display: block;">🇺🇸 United States Support:</strong>
+                <span>+1 (800) 555-NOEL (Toll-Free)</span>
+              </div>
+              <div>
+                <strong style="color: var(--color-gold-light); display: block;">🇪🇺 European Union Support:</strong>
+                <span>+49 (0) 69 555-NOEL (Frankfurt)</span>
+              </div>
+              <div>
+                <strong style="color: var(--color-gold-light); display: block;">✉️ Email Concierge:</strong>
+                <span>concierge@noel-holiday.com</span>
+              </div>
+              <div>
+                <strong style="color: var(--color-gold-light); display: block;">⏰ Holiday Hours:</strong>
+                <span>24 Hours / 7 Days a week through Dec 31</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px;">
+            <h4 style="font-weight: 700; color: var(--color-primary-forest); margin-bottom: 8px;">Looking for Shipping Deadlines?</h4>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 14px;">
+              Check our carrier cutoff chart for USPS, FedEx, and DHL Express before ordering.
+            </p>
+            <a href="shipping-policy.html" class="btn btn-outline" style="width: 100%; color: var(--color-primary-forest); border-color: var(--color-border); padding: 10px; font-size: 0.86rem;">
+              View Shipping Dates →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="gift-guide.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+      <span>Gift Guide</span>
+    </a>
+    <button class="bottom-nav-item" id="bottom-cart-toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </button>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved.</div>
+        <div><a href="shipping-policy.html">Shipping Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

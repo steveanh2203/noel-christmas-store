@@ -1,0 +1,72 @@
+<div class="announcement-bar" role="region" aria-label="Announcement">
+  <div class="announcement-bar__inner">
+    <div class="announcement-slider" id="announcement-msg">
+      {%- for block in section.blocks -%}
+        {%- if forloop.first -%}
+          <span>{{ block.settings.text }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="announcement-controls">
+      {%- if section.settings.show_currency_selector -%}
+        <div class="currency-selector">
+          {% form 'currency' %}
+            <select name="currency" onchange="this.form.submit()">
+              {% for currency in shop.enabled_currencies %}
+                <option value="{{ currency.iso_code }}" {% if currency == cart.currency %}selected{% endif %}>
+                  {{ currency.iso_code }} ({{ currency.symbol }})
+                </option>
+              {% endfor %}
+            </select>
+          {% endform %}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.enable_snow_toggle -%}
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": "Show Currency Selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_snow_toggle",
+      "label": "Enable Snowfall Toggle",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement Message",
+      "settings": [
+        {
+          "type": "html",
+          "id": "text",
+          "label": "Message Text",
+          "default": "🎄 <strong>Holiday Delivery Guarantee</strong> — Order by Dec 18 for guaranteed Christmas arrival"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

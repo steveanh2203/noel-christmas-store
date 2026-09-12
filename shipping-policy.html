@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Shipping Deadlines &amp; Guarantees | NOËL & CO.</title>
+  <meta name="description" content="Official 2024 Christmas delivery cutoff dates for USA and Europe carriers. 100% on-time guarantee and extended returns until Jan 31.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎄 <strong>Christmas Delivery Guarantee</strong> — Order by Dec 18 for guaranteed Christmas arrival</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link active">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="cart.html">View Full Cart <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="checkout.html">Direct Checkout <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html" class="active">Shipping Cutoff Dates <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Holiday Shipping Deadlines</span>
+      </div>
+      <h1 class="page-title">2024 Christmas Shipping Deadlines</h1>
+      <p style="color: #d8dedb; max-width: 620px; margin: 0 auto; font-size: 0.95rem;">
+        Everything you need to know about getting your holiday treasures safely under the tree before December 24.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container" style="max-width: 960px;">
+      <!-- Guarantee Box -->
+      <div style="background: #edf7f0; border: 2px solid #388e3c; border-radius: 8px; padding: 24px; margin-bottom: 40px; display: flex; align-items: center; gap: 20px;">
+        <div style="font-size: 2.5rem;">🎄</div>
+        <div>
+          <h2 style="font-family: var(--font-heading); color: #1b5e20; font-size: 1.4rem; margin-bottom: 4px;">
+            The NOËL &amp; CO. Christmas Eve Guarantee
+          </h2>
+          <p style="color: #2e7d32; font-size: 0.92rem; line-height: 1.5;">
+            Order before the cutoff dates below, and your package is 100% guaranteed to arrive by December 24. If it arrives late, your entire order is on us.
+          </p>
+        </div>
+      </div>
+
+      <!-- US Deadlines Table -->
+      <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary-forest); margin-bottom: 12px;">
+        🇺🇸 United States Domestic Shipping
+      </h2>
+      <div class="table-responsive">
+        <table class="holiday-table">
+          <thead>
+            <tr>
+              <th>Shipping Service</th>
+              <th>Order By (EST)</th>
+              <th>Transit Time</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standard Ground Delivery</strong></td>
+              <td>December 15, 11:59 PM</td>
+              <td>3–5 Business Days</td>
+              <td>$4.99 (Free over $75)</td>
+            </tr>
+            <tr>
+              <td><strong>Holiday Priority Express</strong></td>
+              <td>December 18, 11:59 PM</td>
+              <td>2–3 Business Days</td>
+              <td>$9.99 (Free over $120)</td>
+            </tr>
+            <tr>
+              <td><strong>FedEx Next Day Air</strong></td>
+              <td>December 22, 1:00 PM</td>
+              <td>Next Morning</td>
+              <td>$18.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- EU Deadlines Table -->
+      <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary-forest); margin-top: 40px; margin-bottom: 12px;">
+        🇪🇺 European Union &amp; United Kingdom
+      </h2>
+      <div class="table-responsive">
+        <table class="holiday-table">
+          <thead>
+            <tr>
+              <th>Shipping Service</th>
+              <th>Order By (CET)</th>
+              <th>Transit Time</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>EU Standard Tracked</strong></td>
+              <td>December 14, 23:59</td>
+              <td>3–5 Business Days</td>
+              <td>€4.50 (Free over €70)</td>
+            </tr>
+            <tr>
+              <td><strong>DHL Express Holiday</strong></td>
+              <td>December 18, 23:59</td>
+              <td>2 Business Days</td>
+              <td>€8.90</td>
+            </tr>
+            <tr>
+              <td><strong>DHL Urgent Same-Day Dispatch</strong></td>
+              <td>December 21, 14:00</td>
+              <td>1–2 Days Guaranteed</td>
+              <td>€16.50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div style="margin-top: 50px;">
+        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--color-primary-forest); margin-bottom: 20px;">
+          Frequently Asked Holiday Questions
+        </h2>
+        <div class="pdp-accordions">
+          <div class="accordion-item open">
+            <button class="accordion-header">
+              <span>What is your Holiday Return Policy?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              All gifts purchased between November 1 and December 24 are eligible for full returns or exchanges until <strong>January 31, 2025</strong>. Items must be in original condition with tags/boxes intact.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Are customs duties or VAT included for European orders?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              Yes! All EU orders are fulfilled directly from our distribution hub in Frankfurt, Germany. There are zero customs duties, additional tariffs, or unexpected fees for customers in EU member countries.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Can I ship directly to the gift recipient with no invoice prices?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              Absolutely! Simply check the "Gift Wrapping" option at checkout or enter a gift note. We always include a packing slip without pricing for gift deliveries.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="gift-guide.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+      <span>Gift Guide</span>
+    </a>
+    <button class="bottom-nav-item" id="bottom-cart-toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </button>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved.</div>
+        <div><a href="contact.html">Contact Support</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

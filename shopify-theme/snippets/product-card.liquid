@@ -1,0 +1,53 @@
+{% comment %}
+  Renders a holiday product card
+  Accepts:
+  - product: {Object} Product Liquid object
+{% endcomment %}
+
+<article class="product-card">
+  <div class="product-media">
+    {%- if product.compare_at_price > product.price -%}
+      <span class="product-badge-tag badge-sale">Sale</span>
+    {%- elsif product.tags contains 'bestseller' -%}
+      <span class="product-badge-tag badge-bestseller">Best Seller</span>
+    {%- elsif product.tags contains 'exclusive' -%}
+      <span class="product-badge-tag badge-exclusive">Exclusive</span>
+    {%- endif -%}
+
+    <a href="{{ product.url }}">
+      <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" class="product-img-primary" loading="lazy">
+      {%- if product.images[1] != blank -%}
+        <img src="{{ product.images[1] | image_url: width: 600 }}" alt="{{ product.title | escape }}" class="product-img-secondary" loading="lazy">
+      {%- endif -%}
+    </a>
+
+    <div class="card-quick-actions">
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="btn-card-add">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          Quick Add
+        </button>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="product-content">
+    <span class="product-category">{{ product.type | default: 'Holiday Gift' }}</span>
+    <h3 class="product-title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+    
+    <div class="product-rating">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-count">(Verified)</span>
+    </div>
+
+    <div class="product-price-row">
+      <span class="current-price">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <span class="original-price">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

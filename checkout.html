@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | NOËL & CO. (Shopify Secure Checkout)</title>
+  <meta name="description" content="Shopify 256-bit encrypted checkout. Guaranteed pre-Christmas holiday delivery to USA & EU.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body style="background:#ffffff; padding-bottom:0;">
+
+  <!-- Main Checkout 2-Column Split -->
+  <div class="checkout-wrapper">
+    <!-- Left Column: Checkout Form -->
+    <main class="checkout-main">
+      <!-- Checkout Brand Header -->
+      <div style="margin-bottom: 24px;">
+        <a href="index.html" class="brand-logo-text" style="font-size: 1.6rem;">
+          <span>NOËL</span> &amp; CO.
+        </a>
+        <div style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: 6px;">
+          <a href="cart.html" style="color: var(--color-primary-forest); text-decoration: underline;">Cart</a> &gt;
+          <span style="font-weight: 700; color: var(--color-text-main);">Information &amp; Shipping</span> &gt;
+          <span>Payment</span>
+        </div>
+      </div>
+
+      <!-- Express Checkout Options (Shopify Standard) -->
+      <div class="express-checkout-box">
+        <span style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;">Express Checkout</span>
+        <div class="express-buttons-grid">
+          <button type="button" class="btn-express-shop-pay" onclick="window.NoelApp.showToast('Redirecting to Shop Pay Express...')">
+            Shop Pay
+          </button>
+          <button type="button" class="btn-express-paypal" onclick="window.NoelApp.showToast('Connecting to PayPal Sandbox...')">
+            PayPal
+          </button>
+          <button type="button" class="btn-express-gpay" onclick="window.NoelApp.showToast('Apple Pay / GPay activated')">
+            GPay / Apple Pay
+          </button>
+        </div>
+      </div>
+
+      <div style="position: relative; text-align: center; margin: 28px 0;">
+        <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--color-border); z-index: 1;"></div>
+        <span style="position: relative; z-index: 2; background: #fff; padding: 0 14px; font-size: 0.82rem; color: var(--color-text-light); text-transform: uppercase;">OR CONTINUE WITH STANDARD CHECKOUT</span>
+      </div>
+
+      <!-- Checkout Form -->
+      <form id="checkout-address-form">
+        <!-- Contact Information -->
+        <div style="margin-bottom: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+            <h3 class="checkout-section-title" style="margin-bottom: 0;">Contact Information</h3>
+            <span style="font-size: 0.8rem; color: var(--color-text-muted);">Already have an account? <a href="#" style="color:var(--color-festive-red); font-weight:600;">Log in</a></span>
+          </div>
+          <input type="email" class="checkout-input" placeholder="Email or mobile phone number" required style="margin-bottom: 10px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--color-text-muted); cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--color-festive-red);">
+            Email me with Christmas delivery tracking and order status
+          </label>
+        </div>
+
+        <!-- Shipping Address -->
+        <div style="margin-bottom: 28px;">
+          <h3 class="checkout-section-title">Shipping Address</h3>
+          
+          <div style="margin-bottom: 12px;">
+            <select class="checkout-input" id="shipping-country-select">
+              <option value="US">🇺🇸 United States</option>
+              <option value="GB">🇬🇧 United Kingdom</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="FR">🇫🇷 France</option>
+              <option value="IT">🇮🇹 Italy</option>
+              <option value="ES">🇪🇸 Spain</option>
+              <option value="NL">🇳🇱 Netherlands</option>
+              <option value="CA">🇨🇦 Canada</option>
+            </select>
+          </div>
+
+          <div class="form-grid-2">
+            <input type="text" class="checkout-input" placeholder="First name" required>
+            <input type="text" class="checkout-input" placeholder="Last name" required>
+          </div>
+
+          <input type="text" class="checkout-input" placeholder="Street Address" required style="margin-bottom: 12px;">
+          <input type="text" class="checkout-input" placeholder="Apartment, suite, unit (optional)" style="margin-bottom: 12px;">
+
+          <div class="form-grid-2">
+            <input type="text" class="checkout-input" placeholder="City" required>
+            <input type="text" class="checkout-input" placeholder="State / Region / Province" required>
+          </div>
+
+          <div class="form-grid-2">
+            <input type="text" class="checkout-input" placeholder="ZIP / Postal code" required>
+            <input type="tel" class="checkout-input" placeholder="Phone (for delivery carrier)">
+          </div>
+        </div>
+
+        <!-- Shipping Method -->
+        <div style="margin-bottom: 28px;">
+          <h3 class="checkout-section-title">Shipping Method</h3>
+          <div class="shipping-radio-box">
+            <label class="shipping-radio-row selected">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="ship_method" checked style="accent-color: var(--color-festive-red);">
+                <div>
+                  <strong style="display: block; font-size: 0.9rem; color: var(--color-primary-forest);">🎄 Guaranteed Pre-Christmas Priority Delivery</strong>
+                  <span style="font-size: 0.78rem; color: var(--color-text-muted);">Direct courier dispatch with on-time delivery guarantee</span>
+                </div>
+              </div>
+              <span style="font-weight: 700; color: #27ae60; font-size: 0.88rem;">Included</span>
+            </label>
+
+            <label class="shipping-radio-row">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="ship_method" style="accent-color: var(--color-festive-red);">
+                <div>
+                  <strong style="display: block; font-size: 0.9rem; color: var(--color-primary-forest);">⚡ VIP Overnight Air Express</strong>
+                  <span style="font-size: 0.78rem; color: var(--color-text-muted);">Next business morning delivery</span>
+                </div>
+              </div>
+              <span style="font-weight: 700; font-size: 0.88rem;">+$18.00</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Payment -->
+        <div style="margin-bottom: 32px;">
+          <h3 class="checkout-section-title">Payment Method</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 12px;">All transactions are secure and encrypted via Shopify Payments.</p>
+          
+          <div style="border: 1px solid var(--color-border); border-radius: 6px; padding: 18px; background: #fdfaf6;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span style="font-weight:700; color:var(--color-primary-forest); font-size:0.92rem;">Credit or Debit Card</span>
+              <div style="display:flex; gap:6px;">
+                <span class="payment-badge">Visa</span>
+                <span class="payment-badge">Mastercard</span>
+                <span class="payment-badge">Amex</span>
+              </div>
+            </div>
+
+            <input type="text" class="checkout-input" placeholder="Card number (4242 •••• •••• 4242)" style="margin-bottom: 12px;" value="4242 •••• •••• 4242">
+            <div class="form-grid-2">
+              <input type="text" class="checkout-input" placeholder="Expiration date (MM / YY)" value="12/28">
+              <input type="text" class="checkout-input" placeholder="Security code (CVV)" value="888">
+            </div>
+            <input type="text" class="checkout-input" placeholder="Name on card" value="Holiday Shopper" style="margin-top: 12px;">
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.05rem; font-weight: 800; border-radius: 6px; box-shadow: 0 4px 18px rgba(190, 30, 45, 0.4);">
+          Complete Holiday Order 🎁
+        </button>
+
+        <p style="text-align: center; font-size: 0.78rem; color: var(--color-text-light); margin-top: 14px;">
+          🔒 Encrypted 256-Bit SSL Checkout • Extended 60-Day Returns until Jan 31
+        </p>
+      </form>
+    </main>
+
+    <!-- Right Column: Order Summary Sidebar -->
+    <aside class="checkout-sidebar">
+      <div style="position: sticky; top: 40px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-primary-forest); margin-bottom: 20px;">
+          Holiday Bag Summary
+        </h3>
+
+        <!-- Cart Items Injected Dynamically -->
+        <div id="checkout-order-items" style="border-bottom: 1px solid var(--color-border); padding-bottom: 20px; margin-bottom: 20px;">
+          <!-- Dynamically populated by theme.js -->
+        </div>
+
+        <!-- Costs Breakdown -->
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 10px;">
+          <span style="color: var(--color-text-muted);">Subtotal</span>
+          <span id="checkout-subtotal" style="font-weight: 700;">$0.00</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 14px;">
+          <span style="color: var(--color-text-muted);">Holiday Delivery</span>
+          <span id="checkout-shipping-val" style="font-weight: 700; color: #27ae60;">Calculated</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--color-border); font-size: 1.35rem; font-weight: 800; color: var(--color-primary-forest);">
+          <span>Total Due</span>
+          <span id="checkout-final-amount">$0.00</span>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 6px; padding: 14px; margin-top: 24px; font-size: 0.82rem; color: var(--color-text-muted);">
+          <strong style="color: var(--color-primary-forest); display: block; margin-bottom: 4px;">🎄 100% Christmas Delivery Promise:</strong>
+          If your shipment does not arrive prior to December 24, our Holiday Guarantee reimburses your entire purchase amount.
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
