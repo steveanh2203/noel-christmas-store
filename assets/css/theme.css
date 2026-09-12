@@ -4278,6 +4278,73 @@ body.snow-disabled #snow-canvas {
   color: #b91c1c;
 }
 
+/* ==========================================================================
+   10. MOBILE ULTIMATE RESPONSIVENESS & TOUCH OPTIMIZATIONS (iOS / Android)
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 
+/* iOS Notched Devices (iPhone X, 11, 12, 13, 14, 15, 16 Pro Max) Safe-Area */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 769px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+  .mobile-bottom-nav {
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
+  .sticky-mobile-pdp {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+}
 
+/* Small Screen Coupon Selector Responsive Adaptation */
+@media (max-width: 520px) {
+  .pdp-coupon-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .pdp-coupon-left {
+    padding-right: 0;
+  }
+  .pdp-coupon-apply-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  .pdp-active-coupon-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pdp-active-coupon-banner .btn-remove-coupon {
+    align-self: flex-end;
+  }
+}
 
+/* Responsive Live Sales Toast for Small Viewports */
+@media (max-width: 480px) {
+  .live-sales-toast {
+    left: 12px;
+    right: 12px;
+    max-width: calc(100vw - 24px);
+    bottom: calc(75px + env(safe-area-inset-bottom, 10px));
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
