@@ -1,0 +1,123 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-logo-text" style="color:#ffffff; margin-bottom:14px;">
+          <span>{{ section.settings.footer_logo_highlight | default: 'NOËL' }}</span> {{ section.settings.footer_logo_suffix | default: '& CO.' }}
+        </div>
+        <p style="font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:20px;">
+          {{ section.settings.footer_bio | default: 'Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018.' }}
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">{{ section.settings.menu_1_title | default: 'Collections' }}</h4>
+        <ul class="footer-links">
+          {%- for link in linklists[section.settings.menu_1].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="{{ routes.all_products_collection_url }}">All Holiday Treasures</a></li>
+            <li><a href="/pages/gift-guide">Holiday Gift Guide</a></li>
+            <li><a href="/cart">View Cart Page</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">{{ section.settings.menu_2_title | default: 'Customer Care' }}</h4>
+        <ul class="footer-links">
+          {%- for link in linklists[section.settings.menu_2].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/pages/shipping-policy">Shipping Cutoff Dates</a></li>
+            <li><a href="/pages/track-order">Track Holiday Delivery</a></li>
+            <li><a href="/pages/returns-policy">Extended 60-Day Returns</a></li>
+            <li><a href="/pages/faq">FAQ &amp; Help Center</a></li>
+            <li><a href="/pages/contact">Contact Concierge</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">{{ section.settings.menu_3_title | default: 'Trust & Policies' }}</h4>
+        <ul class="footer-links">
+          {%- for link in linklists[section.settings.menu_3].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- else -%}
+            <li><a href="/pages/privacy-policy">Privacy Policy (GDPR)</a></li>
+            <li><a href="/pages/terms-of-service">Terms of Service</a></li>
+            <li><a href="/pages/about">Our Craftsmanship</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. All Rights Reserved. Built with Shopify Architecture standards.</div>
+      <div style="display:flex; gap:16px;">
+        <a href="/pages/privacy-policy">Privacy Policy</a>
+        <a href="/pages/terms-of-service">Terms of Service</a>
+        <a href="/pages/returns-policy">Holiday Returns</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "footer_logo_highlight",
+      "label": "Logo Highlight",
+      "default": "NOËL"
+    },
+    {
+      "type": "text",
+      "id": "footer_logo_suffix",
+      "label": "Logo Suffix",
+      "default": "& CO."
+    },
+    {
+      "type": "textarea",
+      "id": "footer_bio",
+      "label": "Store Bio",
+      "default": "Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018."
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Collections"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Customer Care"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "menu_3_title",
+      "label": "Menu 3 Title",
+      "default": "Trust & Policies"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu 3"
+    }
+  ]
+}
+{% endschema %}

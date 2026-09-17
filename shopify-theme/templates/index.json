@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "badge": "🎄 Official 2024 Holiday Collection",
+        "heading": "Heirloom Gifts for <em>Magical</em> Christmas Evenings",
+        "subheading": "Meticulously hand-poured botanical candles, mouth-blown European glass ornaments, and Scandinavian merino wool throws.",
+        "button_label_1": "Explore Holiday Catalog →",
+        "button_link_1": "/collections/all",
+        "button_label_2": "Holiday Gift Guide 🎁",
+        "button_link_2": "/pages/gift-guide",
+        "free_shipping_threshold": "$75"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "pretitle": "Curated Holiday Gift Guide",
+        "title": "Thoughtfully Crafted For Everyone on Your List",
+        "description": "Find the perfect festive treasure with verified 5-star holiday reviews.",
+        "products_to_show": 8
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "featured_collection"
+  ]
+}

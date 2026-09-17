@@ -1,0 +1,37 @@
+<div class="page-header-banner">
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="{{ routes.root_url }}">Home</a> <span>/</span> <span>Search Results</span>
+    </div>
+    <h1 class="page-title">
+      {% if search.performed %}
+        Search Results for "{{ search.terms | escape }}"
+      {% else %}
+        Search Our Holiday Collection
+      {% endif %}
+    </h1>
+  </div>
+</div>
+
+<div class="container" style="padding: 40px 20px 80px;">
+  <form action="{{ routes.search_url }}" method="get" role="search" style="max-width: 540px; margin: 0 auto 40px; display: flex; gap: 8px;">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search candles, baubles, hampers..." class="checkout-input" style="padding: 12px 16px;">
+    <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Search</button>
+  </form>
+
+  {% if search.performed %}
+    {% if search.results_count == 0 %}
+      <p style="text-align: center; color: var(--color-text-muted); font-size: 1.1rem; padding: 40px 0;">
+        No treasures found for "{{ search.terms }}". Try searching for "candle", "glass", or "ornament".
+      </p>
+    {% else %}
+      <div class="products-grid">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% render 'product-card', product: item %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+</div>

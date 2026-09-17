@@ -1,0 +1,55 @@
+<div class="page-header-banner">
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="{{ routes.root_url }}">Home</a> <span>/</span> <span>{{ page.title }}</span>
+    </div>
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p style="color: #d8dedb; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+      Our holiday concierge team is here to assist with bespoke orders, gifting advice, and priority shipping inquiries.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="max-width: 900px; margin: 48px auto 80px; padding: 0 20px;">
+  <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 8px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <div style="background: #e8f8f0; border: 1px solid #27ae60; color: #1e7e34; padding: 16px; border-radius: 6px; margin-bottom: 24px; font-weight: 600;">
+          ✨ Thank you! Your holiday inquiry has been received. Our concierge will reply within 4 hours.
+        </div>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--color-primary-forest);">Full Name *</label>
+          <input type="text" name="contact[name]" class="checkout-input" placeholder="Your Name" required>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--color-primary-forest);">Email Address *</label>
+          <input type="email" name="contact[email]" class="checkout-input" placeholder="name@example.com" required>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--color-primary-forest);">Inquiry Subject</label>
+        <select name="contact[subject]" class="checkout-input">
+          <option value="Christmas Delivery Status">Christmas Delivery Status</option>
+          <option value="Holiday Hamper Customization">Holiday Hamper Customization</option>
+          <option value="Corporate / Bulk Gifting">Corporate / Bulk Gifting</option>
+          <option value="General Concierge Assistance">General Concierge Assistance</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--color-primary-forest);">Your Message *</label>
+        <textarea name="contact[body]" rows="5" class="checkout-input" placeholder="How may our holiday team assist you?" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; font-weight: 700;">
+        Send Concierge Inquiry ✨
+      </button>
+    {% endform %}
+  </div>
+</div>
