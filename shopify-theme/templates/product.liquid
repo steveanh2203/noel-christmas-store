@@ -102,4 +102,21 @@
       </div>
     </div>
   </section>
+
+  <!-- Mobile Sticky Add To Cart Bar -->
+  <div class="mobile-sticky-atc" id="mobile-sticky-atc">
+    <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; max-width: 58%;">
+      <img src="{{ product.featured_image | image_url: width: 80 }}" alt="{{ product.title | escape }}" style="width: 42px; height: 42px; object-fit: cover; border-radius: 4px; flex-shrink: 0;">
+      <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-primary-forest); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ product.title }}</div>
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--color-festive-red);">{{ product.price | money }}</div>
+      </div>
+    </div>
+    {% form 'product', product %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.88rem; white-space: nowrap; border-radius: 6px;">
+        Add to Bag 🎁
+      </button>
+    {% endform %}
+  </div>
 </div>

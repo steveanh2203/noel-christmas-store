@@ -1,5 +1,10 @@
 <header class="site-header" id="site-header">
   <div class="container header-inner">
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
     <a href="{{ routes.root_url }}" class="site-brand">
       <div class="brand-logo-text">
         <span>{{ section.settings.logo_highlight | default: 'NOËL' }}</span> {{ section.settings.logo_suffix | default: '& CO.' }}
@@ -15,9 +20,10 @@
             </a>
           </li>
         {%- else -%}
-          <li><a href="#gift-guide" class="nav-link active">Gift Guide</a></li>
-          <li><a href="#products-section" class="nav-link">Ornaments &amp; Decor</a></li>
-          <li><a href="#bundle-spotlight" class="nav-link">Holiday Hampers <span class="nav-badge-new">Save 21%</span></a></li>
+          <li><a href="{{ routes.all_products_collection_url }}" class="nav-link">Shop Catalog</a></li>
+          <li><a href="/pages/gift-guide" class="nav-link">Gift Guide</a></li>
+          <li><a href="/pages/shipping-policy" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="/pages/about" class="nav-link">Our Story</a></li>
         {%- endfor -%}
       </ul>
     </nav>
@@ -34,6 +40,37 @@
     </div>
   </div>
 </header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+<aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+  <div class="mobile-nav-header">
+    <div class="brand-logo-text" style="font-size:1.25rem;">
+      <span>{{ section.settings.logo_highlight | default: 'NOËL' }}</span> {{ section.settings.logo_suffix | default: '& CO.' }}
+    </div>
+    <button id="close-mobile-nav-btn" style="font-size:1.2rem; color:var(--color-text-main); background:none; border:none; cursor:pointer;">✕</button>
+  </div>
+  <div class="mobile-nav-body">
+    <ul class="mobile-nav-list">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <li class="mobile-nav-item">
+          <a href="{{ link.url }}" class="{% if link.current %}active{% endif %}">
+            {{ link.title }} <span>→</span>
+          </a>
+        </li>
+      {%- else -%}
+        <li class="mobile-nav-item"><a href="{{ routes.root_url }}">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="{{ routes.all_products_collection_url }}">Shop All Holiday Items <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/gift-guide">Official Gift Guide 2024 <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/shipping-policy">Shipping Cutoff Dates <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/returns-policy">Holiday Returns &amp; Exchanges <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/track-order">Track Your Package 🚚 <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/faq">FAQ &amp; Help Center <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="/pages/contact">Contact Concierge <span>→</span></a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</aside>
 
 {% schema %}
 {
