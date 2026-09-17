@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | NOËL &amp; CO.</title>
+  <meta name="description" content="NOËL &amp; CO. Privacy Policy. Fully compliant with EU GDPR and California CCPA standards. 256-bit SSL encrypted data protection.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🔒 <strong>Bank-Grade Privacy:</strong> 256-Bit SSL Encryption &amp; Strict GDPR/CCPA Data Compliance</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="track-order.html" class="action-btn" title="Track Order">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </a>
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="track-order.html">Track Order <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="returns-policy.html">Holiday Returns <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="faq.html">FAQ &amp; Help <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html">Shipping Cutoff Dates <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Privacy Policy</span>
+      </div>
+      <h1 class="page-title">Privacy &amp; Data Protection Policy</h1>
+      <p style="color: #d8dedb; max-width: 620px; margin: 0 auto; font-size: 0.95rem;">
+        Last Updated: October 2024. Your privacy and trust are sacred to our family-owned holiday house.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container" style="max-width: 900px;">
+      
+      <div class="policy-card">
+        <h2>1. Commitment to Your Privacy</h2>
+        <p>
+          At <strong>NOËL &amp; CO.</strong>, we are committed to safeguarding the personal information of our customers across the United States, Canada, the European Union, and the United Kingdom. This policy outlines how we collect, store, and process your data when you visit our website, place a holiday order, or communicate with our seasonal support team.
+        </p>
+
+        <div class="policy-highlight-box">
+          <p>
+            🛡️ <strong>We Never Sell Your Data:</strong> NOËL &amp; CO. will never rent, sell, or trade your personal information, email address, or order history to third-party advertisers or data brokers under any circumstance.
+          </p>
+        </div>
+
+        <h2>2. Information We Collect</h2>
+        <p>When you browse or place an order with our store, we collect the following categories of information:</p>
+        <ul>
+          <li><strong>Contact &amp; Delivery Details:</strong> Your full name, email address, shipping destination, and telephone number (used strictly for carrier delivery alerts via FedEx / DHL).</li>
+          <li><strong>Billing Information:</strong> Billed address and transaction confirmation IDs. All credit card processing is handled directly by Shopify Payments (Shop Pay), Apple Pay, and PayPal under PCI-DSS Level 1 standards. We never store raw credit card numbers on our servers.</li>
+          <li><strong>Recipient Details for Gift Orders:</strong> If you ship directly to a recipient, we store their name and address solely for package fulfillment and delivery tracking.</li>
+          <li><strong>Device &amp; Analytics Data:</strong> IP address, browser type, and anonymous browsing interactions collected via cookies to optimize website speed and performance.</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>Your data is processed strictly for the following purposes:</p>
+        <ul>
+          <li>Fulfilling and dispatching your holiday orders before our Christmas Eve delivery cutoffs.</li>
+          <li>Sending automated shipment tracking links and delivery status notifications.</li>
+          <li>Processing authorized refunds, exchanges, or gift credits under our extended January 31 return policy.</li>
+          <li>Providing personalized assistance through our 24/7 Holiday Concierge support team.</li>
+          <li>Preventing transactional fraud and unauthorized chargebacks.</li>
+        </ul>
+
+        <h2>4. Data Sharing with Authorized Partners</h2>
+        <p>We only share necessary data with trusted service providers essential to completing your order:</p>
+        <ul>
+          <li><strong>Logistics &amp; Carriers:</strong> FedEx, DHL Express, and USPS to generate air waybills and facilitate porch delivery.</li>
+          <li><strong>Payment Processors:</strong> Shopify Payments, Stripe, Apple Pay, PayPal, and Klarna for encrypted transaction verification.</li>
+          <li><strong>Cloud Infrastructure:</strong> Vercel and Shopify global edge CDNs for high-speed, secure web delivery.</li>
+        </ul>
+
+        <h2>5. Your Rights Under GDPR (EU) &amp; CCPA (California)</h2>
+        <p>Regardless of where you reside, you possess comprehensive rights over your personal data:</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request a complete copy of the personal data we hold about you.</li>
+          <li><strong>Right to Rectification:</strong> Update or correct inaccurate shipping addresses or contact details.</li>
+          <li><strong>Right to Erasure ("Right to Be Forgotten"):</strong> Request that we delete your account and personal details from our records.</li>
+          <li><strong>Right to Opt-Out:</strong> Unsubscribe from seasonal newsletters with a single click at any time.</li>
+        </ul>
+
+        <h2>6. Contacting Our Data Protection Officer</h2>
+        <p>
+          To exercise any of your data rights or if you have questions regarding our privacy practices, please contact our Data Protection Officer (DPO):
+        </p>
+        <p style="margin-bottom:0;">
+          <strong>Email:</strong> <a href="mailto:privacy@noelchristmas.com" style="color:var(--color-festive-red); font-weight:700;">privacy@noelchristmas.com</a><br>
+          <strong>NOËL &amp; CO. Compliance Office:</strong> 420 Lexington Ave, New York, NY 10170, USA<br>
+          <strong>European Office:</strong> Bockenheimer Landstraße 24, 60323 Frankfurt am Main, Germany
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-text" style="color:#ffffff; margin-bottom:14px;"><span>NOËL</span> &amp; CO.</div>
+          <p style="font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:20px;">
+            Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html">All Holiday Treasures</a></li>
+            <li><a href="gift-guide.html">Holiday Gift Guide</a></li>
+            <li><a href="product.html?id=prod-candle">Botanical Candles</a></li>
+            <li><a href="product.html?id=prod-ornaments">Glass Baubles</a></li>
+            <li><a href="cart.html">View Cart Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="shipping-policy.html">Shipping Cutoff Dates</a></li>
+            <li><a href="track-order.html">Track Holiday Delivery</a></li>
+            <li><a href="returns-policy.html">Extended 60-Day Returns</a></li>
+            <li><a href="faq.html">FAQ &amp; Help Center</a></li>
+            <li><a href="contact.html">Contact Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Trust &amp; Policies</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy (GDPR)</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="about.html">Our Craftsmanship</a></li>
+            <li><a href="shipping-policy.html">100% On-Time Guarantee</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved. Built with Shopify Architecture standards.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="returns-policy.html">Holiday Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

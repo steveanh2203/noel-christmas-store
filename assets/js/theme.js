@@ -2091,6 +2091,89 @@
     updateCartUI();
   }
 
+  // Order Tracking Handler
+  function handleTrackLookup() {
+    const orderInput = document.getElementById('track-order-id');
+    const resultCard = document.getElementById('tracking-result-card');
+    const submitBtn = document.getElementById('btn-track-submit');
+
+    if (!orderInput || !resultCard) return;
+
+    const orderId = orderInput.value.trim() || '#NOEL-84920';
+    
+    if (submitBtn) {
+      submitBtn.innerHTML = 'Scanning Courier Satellites... 🛰️';
+      submitBtn.disabled = true;
+    }
+
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Track Holiday Package
+        `;
+        submitBtn.disabled = false;
+      }
+
+      const resOrderEl = document.getElementById('res-order-id');
+      if (resOrderEl) resOrderEl.textContent = orderId.toUpperCase();
+
+      resultCard.style.display = 'block';
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Animate progress bar
+      const fillBar = document.getElementById('timeline-bar-fill');
+      if (fillBar) {
+        fillBar.style.width = '0%';
+        setTimeout(() => {
+          fillBar.style.width = '75%';
+        }, 150);
+      }
+
+      showToast('Live tracking details loaded!');
+    }, 600);
+  }
+
+  function fillDemoTracking() {
+    const orderInput = document.getElementById('track-order-id');
+    const emailInput = document.getElementById('track-email');
+    if (orderInput) orderInput.value = '#NOEL-84920';
+    if (emailInput) emailInput.value = 'clara.vance@example.com';
+    handleTrackLookup();
+  }
+
+  // FAQ Page Category Switching & Search
+  function switchFAQCategory(category, buttonEl) {
+    document.querySelectorAll('.faq-tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (buttonEl) buttonEl.classList.add('active');
+
+    const sections = document.querySelectorAll('.faq-group-section');
+    sections.forEach(section => {
+      if (category === 'all' || section.getAttribute('data-category') === category) {
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  }
+
+  function filterFAQ(query) {
+    const q = query.toLowerCase().trim();
+    const items = document.querySelectorAll('.faq-group-section .accordion-item');
+    
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if (!q || text.includes(q)) {
+        item.style.display = 'block';
+        if (q && text.includes(q)) {
+          item.classList.add('open');
+        }
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
   // Global methods
   window.NoelApp = {
     addToCart,
@@ -2107,7 +2190,11 @@
     revealSecretSanta,
     applyPDPCoupon,
     toggleClipCoupon,
-    removeActiveCoupon
+    removeActiveCoupon,
+    handleTrackLookup,
+    fillDemoTracking,
+    switchFAQCategory,
+    filterFAQ
   };
 
 })();

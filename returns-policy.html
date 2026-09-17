@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extended Holiday Returns &amp; Exchanges | NOËL &amp; CO.</title>
+  <meta name="description" content="Extended holiday returns until January 31, 2025. Free gift exchanges, prepaid shipping labels, and 100% fragile breakage protection.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>🎁 <strong>Extended Holiday Returns:</strong> All orders placed now eligible for return or exchange through <strong>January 31, 2025</strong></span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="track-order.html" class="action-btn" title="Track Order">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </a>
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="track-order.html">Track Order <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="returns-policy.html" class="active">Holiday Returns <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="faq.html">FAQ &amp; Help <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html">Shipping Cutoff Dates <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Extended Holiday Returns</span>
+      </div>
+      <h1 class="page-title">Holiday Returns &amp; Exchanges</h1>
+      <p style="color: #d8dedb; max-width: 640px; margin: 0 auto; font-size: 0.95rem;">
+        Shop with absolute peace of mind. Every holiday purchase is backed by our extended 60-day return guarantee until January 31, 2025.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container" style="max-width: 960px;">
+      
+      <!-- Highlight Banner -->
+      <div style="background: #edf7f0; border: 2px solid #388e3c; border-radius: 8px; padding: 24px; margin-bottom: 36px; display: flex; align-items: center; gap: 20px;">
+        <div style="font-size: 2.6rem;">🛡️</div>
+        <div>
+          <h2 style="font-family: var(--font-heading); color: #1b5e20; font-size: 1.4rem; margin-bottom: 4px;">
+            Extended Holiday Return Window — Active Until Jan 31, 2025
+          </h2>
+          <p style="color: #2e7d32; font-size: 0.92rem; line-height: 1.5; margin: 0;">
+            We want your loved ones to adore every treasure. All items purchased between <strong>October 1 and December 24, 2024</strong> can be returned or exchanged through <strong>January 31, 2025</strong> in original, unused condition with presentation gift packaging intact.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4-Step Process Grid -->
+      <h2 style="font-family: var(--font-heading); color: var(--color-primary-forest); font-size: 1.7rem; text-align: center; margin-bottom: 8px;">
+        How Our Stress-Free Return Process Works
+      </h2>
+      <p style="text-align: center; color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+        Complete your return or gift exchange in four seamless steps from your home:
+      </p>
+
+      <div class="return-steps-grid">
+        <div class="return-step-card">
+          <div class="return-step-number">1</div>
+          <h3 class="return-step-title">Start Online</h3>
+          <p class="return-step-desc">Enter your Order Number (#NOEL-XXXXX) or Gift Receipt code to initiate your request.</p>
+        </div>
+
+        <div class="return-step-card">
+          <div class="return-step-number">2</div>
+          <h3 class="return-step-title">Get Prepaid Label</h3>
+          <p class="return-step-desc">Instantly download and print your prepaid FedEx (USA) or DHL Express (EU) return shipping label.</p>
+        </div>
+
+        <div class="return-step-card">
+          <div class="return-step-number">3</div>
+          <h3 class="return-step-title">Pack &amp; Drop Off</h3>
+          <p class="return-step-desc">Place items in their protective box, attach the label, and hand it to any authorized carrier drop-off point.</p>
+        </div>
+
+        <div class="return-step-card">
+          <div class="return-step-number">4</div>
+          <h3 class="return-step-title">Prompt Refund</h3>
+          <p class="return-step-desc">Once inspected, refunds are credited back to your original payment method in 3–5 business days.</p>
+        </div>
+      </div>
+
+      <!-- Policy Details Card -->
+      <div class="policy-card">
+        <h2>🎁 Discreet Holiday Gift Exchanges</h2>
+        <p>
+          Received a NOËL &amp; CO. gift and would prefer a different fragrance or collection item? We offer <strong>anonymous gift exchanges</strong>.
+        </p>
+        <p>
+          You can exchange your gift for an alternate item or store credit voucher without notifying the generous gift-giver. Simply contact our Holiday Concierge at <a href="mailto:support@noelchristmas.com" style="color:var(--color-festive-red); font-weight:700;">support@noelchristmas.com</a> with the order number listed on your packing slip.
+        </p>
+
+        <div class="policy-highlight-box">
+          <p>
+            ✨ <strong>Gift Exchange Bonus:</strong> Gift exchanges and store credit returns are 100% free with no restocking fees or return shipping deductions applied.
+          </p>
+        </div>
+
+        <h3>📦 Return Condition Guidelines</h3>
+        <ul>
+          <li><strong>Artisanal Candles:</strong> Must be unlit with the wick intact, in their original embossed gift box with brass lids.</li>
+          <li><strong>Mouth-Blown Glass Baubles:</strong> Must be in pristine, unhung condition in the satin-lined velvet presentation box.</li>
+          <li><strong>Merino Wool Blankets &amp; Textiles:</strong> Must be unused, unwashed, with the original ribbon ties and authenticity tag intact.</li>
+          <li><strong>Handcrafted Confections &amp; Chocolates:</strong> Due to food safety standards, edible holiday treats cannot be returned once opened unless damaged in transit.</li>
+        </ul>
+
+        <h3>🛡️ Fragile Item Breakage Protection</h3>
+        <p>
+          We take extraordinary care in packing our mouth-blown glass ornaments and ceramic jars with custom-molded biodegradable shock absorbers. However, in the rare event of damage during transatlantic transit:
+        </p>
+        <ul>
+          <li>Take a photo of the damaged item and packaging within 7 days of delivery.</li>
+          <li>Email it to <a href="mailto:support@noelchristmas.com" style="color:var(--color-festive-red); font-weight:700;">support@noelchristmas.com</a>.</li>
+          <li>We will dispatch a <strong>complimentary expedited replacement within 24 hours</strong> with zero paperwork required.</li>
+        </ul>
+
+        <h3>💳 Refund Processing Timelines</h3>
+        <p>
+          Once our fulfillment center in Ohio (USA) or Frankfurt (Germany) receives and inspects your return, we will process your refund immediately:
+        </p>
+        <ul>
+          <li><strong>Shop Pay, Apple Pay &amp; Credit Cards:</strong> 3 to 5 business days depending on your bank.</li>
+          <li><strong>PayPal:</strong> Instant to 24 hours.</li>
+          <li><strong>Store Credit &amp; Gift Cards:</strong> Issued instantly via email upon package scan.</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="contact.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">
+            Initiate a Return or Exchange →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Trust Badges -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Extended Jan 31 Returns</h4>
+            <p class="trust-desc">Stress-free gift giving with full refund &amp; exchange rights.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Prepaid Carrier Labels</h4>
+            <p class="trust-desc">Convenient drop-offs at thousands of FedEx &amp; DHL points.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Encrypted Refunds</h4>
+            <p class="trust-desc">Direct credits to Shop Pay, PayPal, Apple Pay &amp; credit cards.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+          </div>
+          <div>
+            <h4 class="trust-title">Holiday Concierge 24/7</h4>
+            <p class="trust-desc">Dedicated human support ready to assist before Dec 25.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title"><span>🎁</span> Your Holiday Bag</h3>
+      <button class="btn-close-drawer" id="close-cart-btn">✕</button>
+    </div>
+    <div class="cart-shipping-bar">
+      <div class="shipping-bar-text" id="shipping-bar-msg">Free Holiday Shipping on orders over $75 / €70</div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="shipping-progress-fill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body">
+      <div class="cart-empty-state" id="cart-empty-state">
+        <p>Your holiday bag is empty</p>
+      </div>
+      <div id="cart-items-list"></div>
+    </div>
+    <div class="cart-drawer__footer" id="cart-footer-box" style="display:none;">
+      <div class="cart-subtotal-row">
+        <span>Estimated Total</span>
+        <span class="cart-subtotal-amount" id="cart-subtotal-val">$0.00</span>
+      </div>
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
+        <a href="cart.html" class="btn btn-outline" style="flex:1; padding: 12px; font-size: 0.88rem; color: var(--color-primary-forest); border-color: var(--color-border);">View Full Cart</a>
+        <a href="checkout.html" class="btn btn-primary" style="flex:1.5; padding: 12px; font-size: 0.88rem;">Checkout Now →</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="collections.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Shop</span>
+    </a>
+    <a href="track-order.html" class="bottom-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+      <span>Track</span>
+    </a>
+    <button class="bottom-nav-item" id="bottom-cart-toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span>Bag</span>
+      <span class="bottom-cart-badge" id="bottom-cart-badge">0</span>
+    </button>
+  </nav>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-text" style="color:#ffffff; margin-bottom:14px;"><span>NOËL</span> &amp; CO.</div>
+          <p style="font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:20px;">
+            Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html">All Holiday Treasures</a></li>
+            <li><a href="gift-guide.html">Holiday Gift Guide</a></li>
+            <li><a href="product.html?id=prod-candle">Botanical Candles</a></li>
+            <li><a href="product.html?id=prod-ornaments">Glass Baubles</a></li>
+            <li><a href="cart.html">View Cart Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="shipping-policy.html">Shipping Cutoff Dates</a></li>
+            <li><a href="track-order.html">Track Holiday Delivery</a></li>
+            <li><a href="returns-policy.html">Extended 60-Day Returns</a></li>
+            <li><a href="faq.html">FAQ &amp; Help Center</a></li>
+            <li><a href="contact.html">Contact Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Trust &amp; Policies</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy (GDPR)</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="about.html">Our Craftsmanship</a></li>
+            <li><a href="shipping-policy.html">100% On-Time Guarantee</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved. Built with Shopify Architecture standards.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="returns-policy.html">Holiday Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>

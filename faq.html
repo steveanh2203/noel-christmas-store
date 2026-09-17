@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions &amp; Help Center | NOËL &amp; CO.</title>
+  <meta name="description" content="Answers to all your holiday shopping questions. Christmas delivery deadlines, gift wrapping, extended Jan 31 returns, and transatlantic shipping.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+  <link rel="stylesheet" href="assets/css/theme.css">
+</head>
+<body>
+  <canvas id="snow-canvas"></canvas>
+
+  <div class="announcement-bar">
+    <div class="announcement-bar__inner">
+      <div class="announcement-slider" id="announcement-msg">
+        <span>✨ <strong>Holiday Customer Care:</strong> Need quick answers? Check our FAQ or chat with our 24/7 Seasonal Concierge</span>
+      </div>
+      <div class="announcement-controls">
+        <div class="currency-selector">
+          <label for="currency-select" style="font-size:0.75rem; margin-right:4px;">Market:</label>
+          <select id="currency-select">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+          </select>
+        </div>
+        <button class="snow-toggle-btn" id="snow-toggle">❄️ Snow: ON</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="index.html" class="site-brand">
+        <div class="brand-logo-text"><span>NOËL</span> &amp; CO.</div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="site-nav">
+          <li><a href="collections.html" class="nav-link">Shop Catalog</a></li>
+          <li><a href="gift-guide.html" class="nav-link">Gift Guide</a></li>
+          <li><a href="shipping-policy.html" class="nav-link">Shipping Cutoffs</a></li>
+          <li><a href="about.html" class="nav-link">Our Story</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="track-order.html" class="action-btn" title="Track Order">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </a>
+        <button class="action-btn" id="cart-toggle-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-counter" id="cart-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo-text" style="font-size:1.25rem;"><span>NOËL</span> &amp; CO.</div>
+      <button id="close-mobile-nav-btn" style="font-size:1.2rem;">✕</button>
+    </div>
+    <div class="mobile-nav-body">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="index.html">Home Page <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="collections.html">Shop Catalog <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="gift-guide.html">Official Gift Guide <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="track-order.html">Track Order <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="returns-policy.html">Holiday Returns <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="faq.html" class="active">FAQ &amp; Help <span>→</span></a></li>
+        <li class="mobile-nav-item"><a href="shipping-policy.html">Shipping Cutoff Dates <span>→</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="page-header-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> <span>/</span> <span>Frequently Asked Questions</span>
+      </div>
+      <h1 class="page-title">How Can We Help You?</h1>
+      <p style="color: #d8dedb; max-width: 620px; margin: 0 auto; font-size: 0.95rem;">
+        Clear answers about our guaranteed Christmas delivery, luxury gift packaging, extended returns, and artisan creations.
+      </p>
+    </div>
+  </div>
+
+  <main style="padding: 60px 0 90px;">
+    <div class="container" style="max-width: 860px;">
+
+      <!-- Search Input -->
+      <div class="faq-search-box">
+        <svg class="faq-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="faq-search" class="faq-search-input" placeholder="Search shipping deadlines, returns, gift wrap, candles..." oninput="window.NoelApp.filterFAQ(this.value)">
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="faq-categories">
+        <button class="faq-tab-btn active" onclick="window.NoelApp.switchFAQCategory('all', this)">All Topics</button>
+        <button class="faq-tab-btn" onclick="window.NoelApp.switchFAQCategory('shipping', this)">🚚 Shipping &amp; Deadlines</button>
+        <button class="faq-tab-btn" onclick="window.NoelApp.switchFAQCategory('gifting', this)">🎁 Gift Wrap &amp; Services</button>
+        <button class="faq-tab-btn" onclick="window.NoelApp.switchFAQCategory('returns', this)">🔄 Returns &amp; Exchanges</button>
+        <button class="faq-tab-btn" onclick="window.NoelApp.switchFAQCategory('products', this)">🕯️ Product Craftsmanship</button>
+      </div>
+
+      <!-- FAQ Groups Container -->
+      <div id="faq-accordion-container">
+        
+        <!-- Group 1: Shipping -->
+        <div class="faq-group-section" data-category="shipping">
+          <h2 class="faq-group-title"><span>🚚</span> Shipping, Couriers &amp; Holiday Deadlines</h2>
+          <div class="pdp-accordions" style="margin-bottom:24px;">
+            <div class="accordion-item open">
+              <button class="accordion-header">
+                <span>Will my order definitely arrive before Christmas Eve?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p><strong>Yes, 100% guaranteed!</strong> As long as you place your order before our holiday cutoff dates (December 18 for US Standard / EU Standard, or December 20 for FedEx Priority &amp; DHL Express), your package is guaranteed to arrive at your door on or before December 24. If your order arrives late, we will refund your purchase 100% and you keep the items for free.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Where do you ship from, and what carriers do you use?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>We operate dedicated transatlantic fulfillment centers in <strong>Columbus, Ohio (USA)</strong> and <strong>Frankfurt, Germany (EU)</strong>. Domestic US orders ship via FedEx Priority and USPS Express. European orders ship via DHL Express with full end-to-end GPS satellite tracking.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>How can I track my package once it is dispatched?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>As soon as your holiday treasures are packaged, you will receive an automated email and SMS notification containing your direct tracking link. You can also track your order at any moment on our <a href="track-order.html" style="color:var(--color-festive-red); font-weight:700;">Live Order Tracking page</a> using your order number (#NOEL-XXXXX).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Gifting -->
+        <div class="faq-group-section" data-category="gifting">
+          <h2 class="faq-group-title"><span>🎁</span> Gift Services, Packaging &amp; Notes</h2>
+          <div class="pdp-accordions" style="margin-bottom:24px;">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Do items arrive gift-ready, or do I need to wrap them?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>Every NOËL &amp; CO. creation comes enclosed in our signature emerald presentation box with gold-foil filigree embossing. If you select our <strong>Deluxe Gift Wrap option (+ $4.99 / €4.50)</strong> at checkout, your item will be hand-wrapped in heavyweight holiday paper, tied with a custom scarlet velvet ribbon, and sealed with an authentic antique gold wax seal.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Can I ship directly to a recipient without revealing prices?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p><strong>Absolutely.</strong> All gift orders ship with a complimentary holiday gift packing slip that lists the contents without any pricing or billing information. You can also include a custom handwritten personal message of up to 250 characters during checkout.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: Returns -->
+        <div class="faq-group-section" data-category="returns">
+          <h2 class="faq-group-title"><span>🔄</span> Extended Returns &amp; Breakage Protection</h2>
+          <div class="pdp-accordions" style="margin-bottom:24px;">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>What is your Extended Holiday Return Policy?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>All purchases placed between October 1 and December 24, 2024 are covered by our <strong>Extended Holiday Return window until January 31, 2025</strong>. Items must be in unlit/unhung original condition with presentation gift packaging. See our <a href="returns-policy.html" style="color:var(--color-festive-red); font-weight:700;">Full Return Policy</a> for complete details.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>What if a glass bauble or ceramic jar arrives broken?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>We provide a <strong>100% Fragile Breakage Guarantee</strong>. If anything arrives cracked or broken, simply snap a photo and email <a href="mailto:support@noelchristmas.com" style="color:var(--color-festive-red); font-weight:700;">support@noelchristmas.com</a>. We will dispatch a complimentary express replacement within 24 hours with zero hassle or claim forms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 4: Products -->
+        <div class="faq-group-section" data-category="products">
+          <h2 class="faq-group-title"><span>🕯️</span> Materials &amp; Candle Care</h2>
+          <div class="pdp-accordions">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>What ingredients are in your botanical candles?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>Our candles are hand-poured with a 100% pure organic coconut-soy wax blend infused with essential oils and phthalate-free European fine fragrances. We use lead-free organic cotton wicks paired with crackling natural hardwood dual wicks for a soothing fireplace crackle and zero black soot.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>How should I care for my candle to prevent tunneling?</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>On your first burn, allow the candle to burn for 3 to 4 hours until the melted wax pool reaches all edges of the glass jar. Always trim the wick to 1/4 inch (6mm) before lighting to ensure a steady, fragrant 65-hour total burn time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Still Need Help Box -->
+      <div class="policy-card" style="margin-top:48px; text-align:center;">
+        <h3 style="margin-top:0;">Still Have A Question?</h3>
+        <p style="color:var(--color-text-muted); max-width:480px; margin:0 auto 20px;">
+          Our Holiday Concierge team is available 24 hours a day to assist with gift selections, custom orders, and corporate inquiries.
+        </p>
+        <a href="contact.html" class="btn btn-primary" style="padding:14px 28px;">
+          Message Our Holiday Concierge →
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo-text" style="color:#ffffff; margin-bottom:14px;"><span>NOËL</span> &amp; CO.</div>
+          <p style="font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:20px;">
+            Purveyors of timeless Christmas magic. Handcrafting memories for families across the United States and Europe since 2018.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html">All Holiday Treasures</a></li>
+            <li><a href="gift-guide.html">Holiday Gift Guide</a></li>
+            <li><a href="product.html?id=prod-candle">Botanical Candles</a></li>
+            <li><a href="product.html?id=prod-ornaments">Glass Baubles</a></li>
+            <li><a href="cart.html">View Cart Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="shipping-policy.html">Shipping Cutoff Dates</a></li>
+            <li><a href="track-order.html">Track Holiday Delivery</a></li>
+            <li><a href="returns-policy.html">Extended 60-Day Returns</a></li>
+            <li><a href="faq.html">FAQ &amp; Help Center</a></li>
+            <li><a href="contact.html">Contact Concierge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Trust &amp; Policies</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy (GDPR)</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="about.html">Our Craftsmanship</a></li>
+            <li><a href="shipping-policy.html">100% On-Time Guarantee</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2024 NOËL &amp; CO. All Rights Reserved. Built with Shopify Architecture standards.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="returns-policy.html">Holiday Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
