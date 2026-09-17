@@ -616,6 +616,174 @@ body.snow-disabled #snow-canvas {
   object-fit: cover;
 }
 
+/* ==========================================================================
+   PDP GALLERY ENHANCEMENTS (Balanced Height & High-Converting Highlights)
+   ========================================================================== */
+.pdp-gallery {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pdp-gallery-highlights {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.pdp-gallery-highlights:hover {
+  border-color: var(--color-gold-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-highlights-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary-forest);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f2eee8;
+}
+
+.gallery-highlights-header svg {
+  color: var(--color-gold-accent);
+}
+
+.gallery-highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.gallery-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 0.85rem;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.highlight-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: rgba(39, 174, 96, 0.12);
+  color: #27ae60;
+  font-size: 0.7rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pdp-gallery-guarantee {
+  background: #fdfaf6;
+  border: 1px solid #f0e6d8;
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+
+.gallery-guarantee-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.guarantee-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guarantee-icon {
+  font-size: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #ebd9c3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.guarantee-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.guarantee-text strong {
+  font-size: 0.8rem;
+  color: var(--color-primary-forest);
+  line-height: 1.25;
+}
+
+.guarantee-text span {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.pdp-gallery-quote {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold-accent);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.quote-stars {
+  color: var(--color-gold-accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+}
+
+.quote-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quote-author-name {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary-forest);
+}
+
+.quote-badge {
+  font-size: 0.68rem;
+  color: #27ae60;
+  font-weight: 600;
+  background: #e8f5e9;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 /* PDP Information Side */
 .pdp-badge-line {
   display: flex;

@@ -553,6 +553,69 @@
               <img src="${product.secondaryImage}" alt="View 2">
             </div>
           </div>
+
+          <!-- Left Column Artisan Highlights & Guarantees (Eliminates Empty Space) -->
+          <div class="pdp-gallery-highlights">
+            <div class="gallery-highlights-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <span>Artisanal Craftsmanship & Highlights</span>
+            </div>
+            <ul class="gallery-highlights-list">
+              ${(product.features || [
+                "100% Natural Organic Materials",
+                "Handcrafted in Small Artisan Batches",
+                "Deluxe Presentation Keepsake Packaging",
+                "Passed Down Family Heirloom Quality"
+              ]).map(f => `
+                <li class="gallery-highlight-item">
+                  <span class="highlight-check">✓</span>
+                  <span>${f}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="pdp-gallery-guarantee">
+            <div class="gallery-guarantee-grid">
+              <div class="guarantee-badge-item">
+                <div class="guarantee-icon">🎁</div>
+                <div class="guarantee-text">
+                  <strong>Signature Gift Box</strong>
+                  <span>Ribbon & card ready</span>
+                </div>
+              </div>
+              <div class="guarantee-badge-item">
+                <div class="guarantee-icon">🚚</div>
+                <div class="guarantee-text">
+                  <strong>Pre-Dec 24 Express</strong>
+                  <span>Guaranteed delivery</span>
+                </div>
+              </div>
+              <div class="guarantee-badge-item">
+                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-text">
+                  <strong>Extended Returns</strong>
+                  <span>Until Jan 31, 2025</span>
+                </div>
+              </div>
+              <div class="guarantee-badge-item">
+                <div class="guarantee-icon">✨</div>
+                <div class="guarantee-text">
+                  <strong>Artisan Guarantee</strong>
+                  <span>100% Happiness pledge</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pdp-gallery-quote">
+            <div class="quote-stars">★★★★★</div>
+            <p class="quote-text">“${product.id === 'prod-candle' ? 'The fragrance filled our living room before we even lit it! The embossed emerald jar looks like an antique family treasure.' : product.id === 'prod-ornaments' ? 'The craftsmanship of these mouth-blown glass baubles is unbelievable in person. Packaged like royal jewelry!' : 'Exceeded our expectations in every way. The signature holiday packaging is gorgeous.'}”</p>
+            <div class="quote-author">
+              <span class="quote-author-name">${product.id === 'prod-candle' ? 'Eleanor M., Boston, MA' : product.id === 'prod-ornaments' ? 'Julian & Sarah K., Munich' : 'Marianne S., London'}</span>
+              <span class="quote-badge">✓ Verified Holiday Purchase</span>
+            </div>
+          </div>
         </div>
 
         <!-- Details & CRO Conversion Box -->
