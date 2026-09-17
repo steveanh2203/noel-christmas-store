@@ -966,25 +966,63 @@ body.snow-disabled #snow-canvas {
   background: #4620d4;
 }
 
-/* Accordions */
+/* Checkout Security & Trust Row at bottom of PDP Info */
+.pdp-checkout-trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #fdfaf6;
+  border: 1px solid #ebd9c3;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+
+.checkout-trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-primary-forest);
+}
+
+.checkout-trust-badge svg {
+  color: var(--color-festive-red);
+}
+
+/* Accordions (Clean Luxury Card Styling) */
 .pdp-accordions {
-  border-top: 1px solid var(--color-border);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2px 18px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 4px;
 }
 
 .accordion-item {
   border-bottom: 1px solid var(--color-border);
 }
 
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
 .accordion-header {
   width: 100%;
-  padding: 16px 0;
+  padding: 14px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-primary-forest);
   text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .accordion-icon {

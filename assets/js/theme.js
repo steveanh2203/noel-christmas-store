@@ -616,6 +616,33 @@
               <span class="quote-badge">✓ Verified Holiday Purchase</span>
             </div>
           </div>
+
+          <!-- Accordion Specifications (Balances left & right columns to exact equal height) -->
+          <div class="pdp-accordions">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Detailed Specifications &amp; Care</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p style="margin-bottom:6px;">• <strong>Dimensions / Size:</strong> ${product.id === 'prod-candle' ? '12 oz (340g) | 4.2" H x 3.5" D | 65-hour clean burn' : product.id === 'prod-ornaments' ? 'Set of 6 assorted heirloom baubles (3.2" to 4.5" diameter) with velvet loops' : '50" x 70" (127cm x 178cm) | Weight: 4.2 lbs Australian Merino Wool'}</p>
+                <p style="margin-bottom:6px;">• <strong>Materials &amp; Origin:</strong> ${product.id === 'prod-candle' ? '100% pure organic soy wax, cotton wick, embossed emerald keepsake glass' : product.id === 'prod-ornaments' ? 'Mouth-blown Bavarian glass, hand-painted 24K gold filigree' : '100% fine Merino wool, non-itch, natural temperature regulating'}</p>
+                <p>• <strong>Holiday Gift Packaging:</strong> Includes signature gold-foiled keepsake box and satin ribbon.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Transatlantic Delivery &amp; 60-Day Returns</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p style="margin-bottom:6px;">• <strong>USA:</strong> Delivered within 2-3 business days via FedEx Priority from Columbus, Ohio.</p>
+                <p style="margin-bottom:6px;">• <strong>Europe:</strong> Delivered within 2-4 business days via DHL Express from Frankfurt, Germany.</p>
+                <p>• <strong>Holiday Return Guarantee:</strong> Extended to January 31, 2025. Hassle-free gift returns.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Details & CRO Conversion Box -->
@@ -776,30 +803,19 @@
             Buy with <span style="font-weight: 800; font-family: sans-serif; letter-spacing: -0.5px;">Shop Pay</span>
           </button>
 
-          <!-- Accordion Specifications -->
-          <div class="pdp-accordions">
-            <div class="accordion-item open">
-              <button class="accordion-header">
-                <span>Artisan Craftsmanship & Highlights</span>
-                <span class="accordion-icon">▼</span>
-              </button>
-              <div class="accordion-content">
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-                  ${product.features.map(f => `<li>✨ ${f}</li>`).join('')}
-                </ul>
-              </div>
+          <!-- Checkout Security & Trust Row (Finishes right column at exact equal height) -->
+          <div class="pdp-checkout-trust-row">
+            <div class="checkout-trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span>Shopify 256-Bit SSL</span>
             </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header">
-                <span>Transatlantic Delivery & 60-Day Returns</span>
-                <span class="accordion-icon">▼</span>
-              </button>
-              <div class="accordion-content">
-                <p>• <strong>USA:</strong> Delivered within 2-3 business days via FedEx Priority from Columbus, Ohio.</p>
-                <p>• <strong>Europe:</strong> Delivered within 2-4 business days via DHL Express from Frankfurt, Germany.</p>
-                <p>• <strong>Holiday Return Guarantee:</strong> Extended to January 31, 2025. Hassle-free gift returns.</p>
-              </div>
+            <div class="checkout-trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line></svg>
+              <span>Pre-Christmas Express</span>
+            </div>
+            <div class="checkout-trust-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path></svg>
+              <span>Returns 'til Jan 31</span>
             </div>
           </div>
         </div>
